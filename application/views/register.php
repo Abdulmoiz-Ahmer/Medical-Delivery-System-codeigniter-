@@ -71,91 +71,140 @@
                                 ?>
                                 <?php echo form_open(); ?>
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                                        </div> -->
-                                        <input class="form-control" placeholder="Name" name="name" value="<?php echo set_value('name'); ?>" type="text">
-                                    </div>
+                                        </div>
+                                    </div> -->
+                                    <label for="name">Full Name</label>
+                                    <input class="form-control" placeholder="John Doe" name="name" value="<?php if (!isset($clear)) {
+                                                                                                                echo set_value('name');
+                                                                                                            } else {
+                                                                                                                echo "";
+                                                                                                            } ?>" type="text">
+                                    <!-- pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" -->
+                                    <!-- required -->
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div> -->
-                                        <input class="form-control" placeholder="Email" name="email" value="<?php echo set_value('email'); ?>" type="email">
-                                    </div>
+                                        </div>
+                                    </div> -->
+                                    <label for="email">Email</label>
+                                    <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (!isset($clear)) {
+                                                                                                                            echo set_value('email');
+                                                                                                                        } else {
+                                                                                                                            echo "";
+                                                                                                                        }
+                                                                                                                        ?>" type="email" required>
+
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                        </div> -->
-                                        <input class="form-control" placeholder="Password" value="<?php echo set_value('password'); ?>" name="password" type="password">
-                                    </div>
+                                        </div>
+                                    </div> -->
+                                    <label for="password">Password</label>
+                                    <input class="form-control" placeholder="Password" value="<?php if (!isset($clear)) {
+                                                                                                    echo set_value('password');
+                                                                                                } else {
+                                                                                                    echo "";
+                                                                                                } ?>" name="password" type="password" required>
+
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div> -->
-                                        <input class="form-control" placeholder="CNIC" value="<?php echo set_value('cnic'); ?>" name="cnic" type="text">
-                                    </div>
+                                        </div>
+                                    </div> -->
+                                    <label for="cnic">CNIC</label>
+                                    <input class="form-control" placeholder="12345-1234567-8" value="<?php if (!isset($clear)) {
+                                                                                                            echo set_value('cnic');
+                                                                                                        } else {
+                                                                                                            echo "";
+                                                                                                        } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div> -->
-                                        <input class="form-control" placeholder="Department" value="<?php echo set_value('department'); ?>" name="department" type="text">
-                                    </div>
+                                        </div>
+                                    </div> -->
+                                    <label for="department">Department</label>
+                                    <input class="form-control" placeholder="Administration" value="<?php if (!isset($clear)) {
+                                                                                                        echo set_value('department');
+                                                                                                    } else {
+                                                                                                        echo "";
+                                                                                                    } ?>" name="department" type="text" required pattern="[A-Za-z]+">
+
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div> -->
-                                        <input class="form-control" placeholder="Designation" name="designation" value="<?php echo set_value('designation'); ?>" type="text">
-                                    </div>
+                                        </div>
+                                    </div> -->
+                                    <label for="designation">Designation</label>
+                                    <input class="form-control" placeholder="Doctor" name="designation" value="<?php if (!isset($clear)) {
+                                                                                                                    echo set_value('designation');
+                                                                                                                } else {
+                                                                                                                    echo "";
+                                                                                                                }
+                                                                                                                ?>" type="text" required pattern="[A-Za-z]+">
+
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div> -->
-                                        <select class="form-control" name="role" id="exampleFormControlSelect1">
-                                            <option disabled>Role</option>
-                                            <?php foreach ($roles as $role) : ?>
-                                                <option value="<?php echo $role['role_id']; ?>"><?php echo $role['role_name']; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
+                                        </div>
+
+                                    </div> -->
+                                    <label for="role">Role</label>
+                                    <select class="form-control" name="role" required>
+                                        <option disabled>Role</option>
+                                        <?php foreach ($roles as $role) : ?>
+                                            <option value="<?php echo $role['role_id']; ?>" <?php if(set_value('role')== $role['role_id']){echo "selected";} ?>><?php echo $role['role_name']; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div> -->
-                                        <input class="form-control" placeholder="Salary" value="<?php echo set_value('salary'); ?>" name="salary" type="text">
-                                    </div>
+                                        </div>
+                                    </div> -->
+                                    <label for="salary">Salary</label>
+                                    <input class="form-control" placeholder="100000" value="<?php if (!isset($clear)) {
+                                                                                                echo set_value('salary');
+                                                                                            } else {
+                                                                                                echo "";
+                                                                                            }
+                                                                                            ?>" name="salary" type="text" pattern="^[1-9]\d*(\.\d+)?$" required>
+
                                 </div>
 
 
                                 <div class="form-group">
-                                    <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <!-- <div class="input-group-prepend">
+                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div> -->
-                                        <input class="form-control" name="jdate" value="<?php echo set_value('jdate'); ?>" type="date">
-                                    </div>
+                                        </div>
+                                    </div> -->
+                                    <label for="jdate">Date</label>
+                                    <input class="form-control" name="jdate" value="<?php echo set_value('jdate'); ?>" type="date" required>
+
                                 </div>
 
                                 <div class="text-center">

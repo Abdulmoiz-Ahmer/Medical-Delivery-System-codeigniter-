@@ -73,14 +73,14 @@ class Auth extends CI_Controller
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		$this->form_validation->set_rules('name', 'Name', 'required|alpha');
+		$this->form_validation->set_rules('name', 'Name', 'required|regex_match[/^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$/]');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[8]');
 		$this->form_validation->set_rules('cnic', 'CNIC', 'required|exact_length[15]|regex_match[/^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$/]');
 		$this->form_validation->set_rules('department', 'Department', 'required|alpha');
 		$this->form_validation->set_rules('designation', 'Designation', 'required|alpha');
 		$this->form_validation->set_rules('role', 'Role', 'required|is_natural_no_zero');
-		$this->form_validation->set_rules('salary', 'Salary', 'required|numeric|is_natural_no_zero');
+		$this->form_validation->set_rules('salary', 'Salary', 'required|regex_match[/^[1-9]\d*(\.\d+)?$/]');
 		$this->form_validation->set_rules('jdate', 'Joining Date', 'required');
 
 		if ($this->form_validation->run() != FALSE) {
@@ -104,6 +104,7 @@ class Auth extends CI_Controller
 				if ($status == 1 || $status == '1') {
 					$data['growl'] = '1';
 					$data['message'] = 'User successfully created!';
+					$data['clear'] =  true;
 				} else {
 					$data['growl'] = '-1';
 					$data['message'] = 'Something Went Wrong!';
