@@ -26,6 +26,14 @@ class Dashboard extends CI_Controller
         if (!$this->session->has_userdata('user')) {
             return redirect('auth/');
         }
+        $this->load->view('sidebar');
+        $this->load->view('navbar');
+        $this->load->view('dashboardContent');
         $this->load->view('dashboard');
+    }
+
+    public function logout()
+    {
+        redirect('/auth/logout');
     }
 }

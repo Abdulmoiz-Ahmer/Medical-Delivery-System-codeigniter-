@@ -23,23 +23,31 @@ class Auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('auth_model');
+	}
+
+	public function logout()
+	{
 		if ($this->session->has_userdata('user')) {
-			return redirect('dashboard/');
+			$this->session->unset_userdata('user');
 		}
+		return redirect('auth/');
 	}
 
 	public function index()
 	{
+		$this->redirectIfLoggedIn();
 		$this->load->view('auth');
 	}
 
 	public function login()
 	{
+		$this->redirectIfLoggedIn();
 		$this->load->view('auth');
 	}
 
 	public function show()
 	{
+		$this->redirectIfLoggedIn();
 		$data['growl'] = '0';
 		$data['message'] = '';
 		$this->load->library('form_validation');
@@ -66,8 +74,16 @@ class Auth extends CI_Controller
 
 	public function create()
 	{
+		$this->redirectIfLoggedIn();
 		$data['roles'] = $this->auth_model->get_roles();
 		$this->load->view('register', $data);
+	}
+
+	private function redirectIfLoggedIn()
+	{
+		if ($this->session->has_userdata('user')) {
+			return redirect('dashboard/');
+		}
 	}
 
 	public function store()
