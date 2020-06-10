@@ -153,7 +153,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							</div> -->
 						</div>
 						<div class="card-body px-lg-5 py-lg-2">
-							<form role="form" action="/auth/show" method="POST">
+							<form role="form" action="<?php echo base_url('/auth/show') ?>" method="POST">
 
 								<?php
 								if (validation_errors() != false) {
