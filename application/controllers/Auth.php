@@ -30,7 +30,7 @@ class Auth extends CI_Controller
 		if ($this->session->has_userdata('user')) {
 			$this->session->unset_userdata('user');
 		}
-		return redirect('auth/');
+		return redirect(base_url() . 'auth/');
 	}
 
 	public function index()
@@ -61,7 +61,7 @@ class Auth extends CI_Controller
 
 				if (password_verify($this->input->post('password'), $user['user']["password"])) {
 					$this->session->set_userdata("user", $user['user']);
-					redirect('dashboard/');
+					redirect(base_url() . 'dashboard/');
 					// return $this->load->view('dashboard');
 				}
 			}
@@ -83,7 +83,7 @@ class Auth extends CI_Controller
 	private function redirectIfLoggedIn()
 	{
 		if ($this->session->has_userdata('user')) {
-			return redirect('dashboard/');
+			return redirect(base_url() . 'dashboard/');
 		}
 	}
 

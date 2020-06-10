@@ -124,12 +124,12 @@ class Dashboard extends CI_Controller
     private function redirectIfNotLoggedIn()
     {
         if (!$this->session->has_userdata('user')) {
-            return redirect('auth/');
+            return redirect(base_url() . 'auth/');
         }
     }
 
     public function logout()
     {
-        redirect('/auth/logout');
+        redirect(base_url() . '/auth/logout');
     }
 }
