@@ -173,9 +173,9 @@
                                     <select class="form-control" name="role" required>
                                         <option disabled>Role</option>
                                         <?php foreach ($roles as $role) : ?>
-                                            <option value="<?php echo $role['role_id']; ?>" <?php if (set_value('role') == $role['role_id']) {
-                                                                                                echo "selected";
-                                                                                            } ?>><?php echo $role['role_name']; ?></option>
+                                            <option value="<?php echo $role['id']; ?>" <?php if (set_value('role') == $role['id']) {
+                                                                                            echo "selected";
+                                                                                        } ?>><?php echo $role['role_name']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

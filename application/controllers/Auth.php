@@ -76,6 +76,7 @@ class Auth extends CI_Controller
 	{
 		$this->redirectIfLoggedIn();
 		$data['roles'] = $this->auth_model->get_roles();
+		print_r($data);
 		$this->load->view('register', $data);
 	}
 
@@ -105,7 +106,6 @@ class Auth extends CI_Controller
 		$this->form_validation->set_rules('jdate', 'Joining Date', 'required');
 
 		if ($this->form_validation->run() != FALSE) {
-
 			$data['user'] = $this->auth_model->get_user($this->input->post('email'));
 			if (empty($data['user'])) {
 				$options = array("cost" => 10);
@@ -115,7 +115,7 @@ class Auth extends CI_Controller
 					'email' => $this->input->post('email'),
 					'password' => $hashPassword,
 					'cnic' => $this->input->post('cnic'),
-					'dept' => $this->input->post('department'),
+					'department' => $this->input->post('department'),
 					'designation' => $this->input->post('designation'),
 					'role_id' => $this->input->post('role'),
 					'salary' => $this->input->post('salary'),
