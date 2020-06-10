@@ -191,7 +191,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							<!-- <a href="#" class="text-light"><small>Forgot password?</small></a> -->
 						</div>
 						<div class="col-6 text-right">
-							<a href="/auth/create" class="text-light"><small>Create new account</small></a>
+							<a href="<?php echo base_url('/auth/create') ?>" class="text-light"><small>Create new account</small></a>
 						</div>
 					</div>
 				</div>

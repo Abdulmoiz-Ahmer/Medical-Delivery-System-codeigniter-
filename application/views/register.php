@@ -60,7 +60,7 @@
                 <div class="col-lg-6 col-md-8">
                     <div class="card bg-secondary border-0">
                         <div class="card-body px-lg-5 py-lg-5">
-                            <form role="form" action="/auth/store" method="POST">
+                            <form role="form" action="<?php echo base_url('/auth/store') ?>" method="POST">
 
                                 <?php
                                 if (validation_errors() != false) {

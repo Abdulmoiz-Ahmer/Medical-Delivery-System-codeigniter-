@@ -56,7 +56,7 @@
                                   <span>Support</span>
                               </a> -->
                               <div class="dropdown-divider"></div>
-                              <a href="/auth/logout" class="dropdown-item">
+                              <a href="<?php echo base_url('/auth/logout') ?>" class="dropdown-item">
                                   <i class="ni ni-user-run"></i>
                                   <span>Logout</span>
                               </a>

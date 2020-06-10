@@ -76,7 +76,7 @@ class Auth extends CI_Controller
 	{
 		$this->redirectIfLoggedIn();
 		$data['roles'] = $this->auth_model->get_roles();
-		print_r($data);
+		// print_r($data);
 		$this->load->view('register', $data);
 	}
 
