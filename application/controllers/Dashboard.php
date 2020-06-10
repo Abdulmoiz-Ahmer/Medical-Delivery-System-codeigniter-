@@ -23,13 +23,109 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        if ($data["user"]["role_id"] == 1) {
+            $this->load->view('assign');
+        } elseif ($data["user"]["role_id"] == 2) {
+            $this->load->view('myPatients');
+        } else if ($data["user"]["role_id"] == 3) {
+            $this->load->view('patients');
+        }
+
+        $this->load->view('dashboard');
+    }
+
+
+    public function assign()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        $this->load->view('assign');
+        $this->load->view('dashboard');
+    }
+
+    public function allpatients()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        $this->load->view('allPatients');
+        $this->load->view('dashboard');
+    }
+
+    public function session()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        $this->load->view('session');
+        $this->load->view('dashboard');
+    }
+
+    public function mypatients()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        $this->load->view('myPatients');
+        $this->load->view('dashboard');
+    }
+
+
+    public function patients()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        $this->load->view('patients');
+        $this->load->view('dashboard');
+    }
+
+
+    public function prescription()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        $this->load->view('prescription');
+        $this->load->view('dashboard');
+    }
+
+    public function requests()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        $this->load->view('requests');
+        $this->load->view('dashboard');
+    }
+
+    public function stock()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $this->load->view('sidebar', $data);
+        $this->load->view('navbar', $data);
+        $this->load->view('stock');
+        $this->load->view('dashboard');
+    }
+
+    private function redirectIfNotLoggedIn()
+    {
         if (!$this->session->has_userdata('user')) {
             return redirect('auth/');
         }
-        $this->load->view('sidebar');
-        $this->load->view('navbar');
-        $this->load->view('dashboardContent');
-        $this->load->view('dashboard');
     }
 
     public function logout()
