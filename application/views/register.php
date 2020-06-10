@@ -81,7 +81,7 @@
                                                                                                                 echo set_value('name');
                                                                                                             } else {
                                                                                                                 echo "";
-                                                                                                            } ?>" type="text">
+                                                                                                            } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
                                     <!-- pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" -->
                                     <!-- required -->
                                 </div>
@@ -113,7 +113,7 @@
                                                                                                     echo set_value('password');
                                                                                                 } else {
                                                                                                     echo "";
-                                                                                                } ?>" name="password" type="password" required>
+                                                                                                } ?>" name="password" type="password" minlength="8" required>
 
                                 </div>
 
@@ -173,7 +173,9 @@
                                     <select class="form-control" name="role" required>
                                         <option disabled>Role</option>
                                         <?php foreach ($roles as $role) : ?>
-                                            <option value="<?php echo $role['role_id']; ?>" <?php if(set_value('role')== $role['role_id']){echo "selected";} ?>><?php echo $role['role_name']; ?></option>
+                                            <option value="<?php echo $role['role_id']; ?>" <?php if (set_value('role') == $role['role_id']) {
+                                                                                                echo "selected";
+                                                                                            } ?>><?php echo $role['role_name']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

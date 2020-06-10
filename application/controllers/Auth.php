@@ -23,6 +23,9 @@ class Auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('auth_model');
+		if ($this->session->has_userdata('user')) {
+			return redirect('dashboard/');
+		}
 	}
 
 	public function index()
@@ -49,7 +52,9 @@ class Auth extends CI_Controller
 			if (!empty($user['user'])) {
 
 				if (password_verify($this->input->post('password'), $user['user']["password"])) {
-					return $this->load->view('dashboard');
+					$this->session->set_userdata("user", $user['user']);
+					redirect('dashboard/');
+					// return $this->load->view('dashboard');
 				}
 			}
 

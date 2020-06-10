@@ -19,10 +19,13 @@ class Dashboard extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
+
+
     public function index()
     {
+        if (!$this->session->has_userdata('user')) {
+            return redirect('auth/');
+        }
         $this->load->view('dashboard');
     }
-
-   
 }
