@@ -1,5 +1,5 @@
   <!-- Main content -->
-  <div class="main-content" id="panel">
+  <div class="main-content mt-0" id="panel">
       <!-- Topnav -->
       <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
           <div class="container-fluid">

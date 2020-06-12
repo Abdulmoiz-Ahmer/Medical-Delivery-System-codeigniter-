@@ -61,7 +61,7 @@ class Auth extends CI_Controller
 
 				if (password_verify($this->input->post('password'), $user['user']["password"])) {
 					$this->session->set_userdata("user", $user['user']);
-					redirect(base_url() . 'dashboard/');
+					redirect(base_url() . 'dashboard/allpatients/0');
 					// return $this->load->view('dashboard');
 				}
 			}

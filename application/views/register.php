@@ -205,7 +205,12 @@
                                         </div>
                                     </div> -->
                                     <label for="jdate">Date</label>
-                                    <input class="form-control" name="jdate" value="<?php echo set_value('jdate'); ?>" type="date" required>
+                                    <input class="form-control" name="jdate" value="<?php if (!isset($clear)) {
+                                                                                        echo set_value('jdate');
+                                                                                    } else {
+                                                                                        echo "";
+                                                                                    }
+                                                                                    ?>" type="date" required>
 
                                 </div>
 

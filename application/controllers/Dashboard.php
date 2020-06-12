@@ -51,12 +51,7 @@ class Dashboard extends CI_Controller
 
     public function allpatients()
     {
-        $this->redirectIfNotLoggedIn();
-        $data["user"] = $this->session->userdata('user');
-        $this->load->view('sidebar', $data);
-        $this->load->view('navbar', $data);
-        $this->load->view('allPatients');
-        $this->load->view('dashboard');
+        return redirect(base_url() . 'receptionist/allpatients');
     }
 
     public function session()

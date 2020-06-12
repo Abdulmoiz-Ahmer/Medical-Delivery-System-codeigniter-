@@ -51,7 +51,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="<?php echo base_url('/dashboard/allpatients') ?>">
+                                    <a class="nav-link active" href="<?php echo base_url('/dashboard/allpatients/0') ?>">
                                         <i class="ni ni-single-02 text-primary"></i>
                                         <span class="nav-link-text">Patients</span>
                                     </a>
