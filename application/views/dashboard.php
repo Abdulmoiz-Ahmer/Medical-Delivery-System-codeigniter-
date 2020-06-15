@@ -61,8 +61,53 @@ if (isset($openModal)) {
                 $("#openModal").click();
             });
         </script>
-<?php
+    <?php
     }
+}
+if (isset($openUpdateModal) && $openUpdateModal) {
+    ?>
+    <script type="text/javascript">
+        $(function() {
+            $('#updateModal').modal('show');
+        });
+    </script>
+<?php
+}
+if (isset($doctorToBeAssigned) && $doctorToBeAssigned) {
+?>
+    <script type="text/javascript">
+        $(function() {
+            $('#assignPatientModal').modal('show');
+        });
+    </script>
+<?php
+}
+if (isset($openAddSessionModal) && $openAddSessionModal) {
+?>
+    <script type="text/javascript">
+        $(function() {
+            $('#addSessionModal').modal('show');
+        });
+    </script>
+<?php
+}
+if (isset($openAddPrescriptionModal) && $openAddPrescriptionModal) {
+?>
+    <script type="text/javascript">
+        $(function() {
+            $('#addPrescriptionModal').modal('show');
+        });
+    </script>
+<?php
+}
+if (isset($openUpdateEmployeeModal) && $openUpdateEmployeeModal) {
+?>
+    <script type="text/javascript">
+        $(function() {
+            $('#updateEmployeeModal').modal('show');
+        });
+    </script>
+<?php
 }
 ?>
 

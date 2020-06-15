@@ -167,25 +167,6 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-
-                                    </div> -->
-                                    <label for="role">Role</label>
-                                    <select class="form-control" name="role" required>
-                                        <option disabled>Role</option>
-                                        <?php foreach ($roles as $role) : ?>
-                                            <option value="<?php echo $role['id']; ?>" <?php if (set_value('role') == $role['id']) {
-                                                                                            echo "selected";
-                                                                                        } ?>><?php echo $role['role_name']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                        </div>
                                     </div> -->
                                     <label for="salary">Salary</label>
                                     <input class="form-control" placeholder="100000" value="<?php if (!isset($clear)) {

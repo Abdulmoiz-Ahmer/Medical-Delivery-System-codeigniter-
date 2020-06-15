@@ -20,60 +20,51 @@ class Dashboard extends CI_Controller
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
 
-
     public function index()
     {
         $this->redirectIfNotLoggedIn();
         $data["user"] = $this->session->userdata('user');
-        $this->load->view('sidebar', $data);
-        $this->load->view('navbar', $data);
         if ($data["user"]["role_id"] == 1) {
-            $this->load->view('assign');
+            $this->assign();
         } elseif ($data["user"]["role_id"] == 2) {
-            $this->load->view('myPatients');
+            $this->mypatients();
         } else if ($data["user"]["role_id"] == 3) {
-            $this->load->view('patients');
+            $this->patients();
+        } else if ($data["user"]["role_id"] == 4) {
+            $this->admin();
         }
-
-        $this->load->view('dashboard');
     }
 
+
+    public function admin()
+    {
+        $this->redirectIfNotLoggedIn();
+        return redirect(base_url() . 'admin/');
+    }
 
     public function assign()
     {
         $this->redirectIfNotLoggedIn();
-        $data["user"] = $this->session->userdata('user');
-        $this->load->view('sidebar', $data);
-        $this->load->view('navbar', $data);
-        $this->load->view('assign');
-        $this->load->view('dashboard');
+        return redirect(base_url() . 'receptionist/allDoctors');
     }
 
     public function allpatients()
     {
+        $this->redirectIfNotLoggedIn();
         return redirect(base_url() . 'receptionist/allpatients');
     }
 
     public function session()
     {
         $this->redirectIfNotLoggedIn();
-        $data["user"] = $this->session->userdata('user');
-        $this->load->view('sidebar', $data);
-        $this->load->view('navbar', $data);
-        $this->load->view('session');
-        $this->load->view('dashboard');
+        return redirect(base_url() . 'receptionist/session');
     }
 
     public function mypatients()
     {
         $this->redirectIfNotLoggedIn();
-        $data["user"] = $this->session->userdata('user');
-        $this->load->view('sidebar', $data);
-        $this->load->view('navbar', $data);
-        $this->load->view('myPatients');
-        $this->load->view('dashboard');
+        return redirect(base_url() . 'Mo/mypatients');
     }
-
 
     public function patients()
     {
@@ -84,7 +75,6 @@ class Dashboard extends CI_Controller
         $this->load->view('patients');
         $this->load->view('dashboard');
     }
-
 
     public function prescription()
     {

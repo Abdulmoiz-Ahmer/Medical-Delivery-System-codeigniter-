@@ -39,26 +39,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <!-- Nav items -->
                     <ul class="navbar-nav">
+
                         <?php
                         if (isset($user)) {
                             if ($user['role_id'] == 1) {
                         ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('/dashboard/assign') ?>">
+                                    <a class="<?php
+                                                echo 'nav-link';
+                                                if ($this->uri->segment(2) == 'allDoctors') {
+                                                    echo ' active';
+                                                }
+                                                ?>" href="<?php echo base_url('/dashboard/assign') ?>">
                                         <i class="ni ni-tag text-orange"></i>
                                         <span class="nav-link-text">Assign</span>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="<?php echo base_url('/dashboard/allpatients/0') ?>">
+                                    <a class="<?php
+                                                echo "nav-link";
+                                                if ($this->uri->segment(2) == 'allpatients') {
+                                                    echo " active";
+                                                }
+                                                ?>" href="<?php echo base_url('/dashboard/allpatients/0') ?>">
                                         <i class="ni ni-single-02 text-primary"></i>
                                         <span class="nav-link-text">Patients</span>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('/dashboard/session') ?>">
+                                    <a class="<?php
+                                                echo "nav-link";
+                                                if ($this->uri->segment(2) == 'session') {
+                                                    echo " active";
+                                                }
+                                                ?>" href="<?php echo base_url('/dashboard/session') ?>">
                                         <i class="ni ni-camera-compact text-primary"></i>
                                         <span class="nav-link-text">Session</span>
                                     </a>
@@ -66,7 +82,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <?php
                             } else if ($user['role_id'] == 2) { ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('/dashboard/mypatients') ?>">
+                                    <a class="<?php
+                                                echo "nav-link";
+                                                if ($this->uri->segment(2) == 'mypatients') {
+                                                    echo " active";
+                                                }
+                                                ?>" href="<?php echo base_url('/dashboard/mypatients') ?>">
                                         <i class="ni ni-badge text-info"></i>
                                         <span class="nav-link-text">My Patients</span>
                                     </a>
@@ -76,19 +97,34 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             } else if ($user['role_id'] == 3) {
                             ?>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="<?php echo base_url('/dashboard/patients') ?>">
+                                    <a class="<?php
+                                                echo "nav-link";
+                                                if ($this->uri->segment(2) == 'patients') {
+                                                    echo " active";
+                                                }
+                                                ?>" href="<?php echo base_url('/dashboard/patients') ?>">
                                         <i class="ni ni-single-02 text-primary"></i>
                                         <span class="nav-link-text">Patients</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('/dashboard/prescription') ?>">
+                                    <a class="<?php
+                                                echo "nav-link";
+                                                if ($this->uri->segment(2) == 'prescription') {
+                                                    echo " active";
+                                                }
+                                                ?>" href="<?php echo base_url('/dashboard/prescription') ?>">
                                         <i class="ni ni-single-copy-04 text-yellow"></i>
                                         <span class="nav-link-text">Prescription</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('/dashboard/requests') ?>">
+                                    <a class="<?php
+                                                echo "nav-link";
+                                                if ($this->uri->segment(2) == 'requests') {
+                                                    echo " active";
+                                                }
+                                                ?>" href="<?php echo base_url('/dashboard/requests') ?>">
                                         <i class="ni ni-ambulance text-info"></i>
                                         <span class="nav-link-text">Requests</span>
                                     </a>
@@ -96,9 +132,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo base_url('/dashboard/stock') ?>">
+                                    <a class="<?php
+                                                echo "nav-link";
+                                                if ($this->uri->segment(2) == 'stock') {
+                                                    echo " active";
+                                                }
+                                                ?>" href="<?php echo base_url('/dashboard/stock') ?>">
                                         <i class="ni ni-archive-2 text-default"></i>
                                         <span class="nav-link-text">Stock</span>
+                                    </a>
+                                </li>
+                            <?php
+                            } else if ($user['role_id'] == 4) {
+                            ?>
+                                <li class="nav-item">
+                                    <a class="<?php
+                                                echo "nav-link";
+                                                if ($this->uri->segment(1) == 'admin') {
+                                                    echo " active";
+                                                }
+                                                ?>" href="<?php echo base_url('admin/') ?>">
+                                        <i class="ni ni-single-copy-04 text-yellow"></i>
+                                        <span class="nav-link-text">Employees</span>
                                     </a>
                                 </li>
                         <?php

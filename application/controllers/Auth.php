@@ -61,7 +61,7 @@ class Auth extends CI_Controller
 
 				if (password_verify($this->input->post('password'), $user['user']["password"])) {
 					$this->session->set_userdata("user", $user['user']);
-					redirect(base_url() . 'dashboard/allpatients/0');
+					redirect(base_url() . 'dashboard/');
 					// return $this->load->view('dashboard');
 				}
 			}
@@ -101,7 +101,6 @@ class Auth extends CI_Controller
 		$this->form_validation->set_rules('cnic', 'CNIC', 'required|exact_length[15]|regex_match[/^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$/]');
 		$this->form_validation->set_rules('department', 'Department', 'required|alpha');
 		$this->form_validation->set_rules('designation', 'Designation', 'required|alpha');
-		$this->form_validation->set_rules('role', 'Role', 'required|is_natural_no_zero');
 		$this->form_validation->set_rules('salary', 'Salary', 'required|regex_match[/^[1-9]\d*(\.\d+)?$/]');
 		$this->form_validation->set_rules('jdate', 'Joining Date', 'required');
 
@@ -117,7 +116,6 @@ class Auth extends CI_Controller
 					'cnic' => $this->input->post('cnic'),
 					'department' => $this->input->post('department'),
 					'designation' => $this->input->post('designation'),
-					'role_id' => $this->input->post('role'),
 					'salary' => $this->input->post('salary'),
 					'date_of_joining' => $this->input->post('jdate'),
 				);
