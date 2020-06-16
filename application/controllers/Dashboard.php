@@ -29,7 +29,7 @@ class Dashboard extends CI_Controller
         } elseif ($data["user"]["role_id"] == 2) {
             $this->mypatients();
         } else if ($data["user"]["role_id"] == 3) {
-            $this->patients();
+            $this->prescription();
         } else if ($data["user"]["role_id"] == 4) {
             $this->admin();
         }
@@ -66,24 +66,10 @@ class Dashboard extends CI_Controller
         return redirect(base_url() . 'Mo/mypatients');
     }
 
-    public function patients()
-    {
-        $this->redirectIfNotLoggedIn();
-        $data["user"] = $this->session->userdata('user');
-        $this->load->view('sidebar', $data);
-        $this->load->view('navbar', $data);
-        $this->load->view('patients');
-        $this->load->view('dashboard');
-    }
-
     public function prescription()
     {
         $this->redirectIfNotLoggedIn();
-        $data["user"] = $this->session->userdata('user');
-        $this->load->view('sidebar', $data);
-        $this->load->view('navbar', $data);
-        $this->load->view('prescription');
-        $this->load->view('dashboard');
+        return redirect(base_url() . 'Msa/prescription');
     }
 
     public function requests()
@@ -99,11 +85,7 @@ class Dashboard extends CI_Controller
     public function stock()
     {
         $this->redirectIfNotLoggedIn();
-        $data["user"] = $this->session->userdata('user');
-        $this->load->view('sidebar', $data);
-        $this->load->view('navbar', $data);
-        $this->load->view('stock');
-        $this->load->view('dashboard');
+        return redirect(base_url() . 'Msa/stocks');
     }
 
     private function redirectIfNotLoggedIn()

@@ -87,7 +87,6 @@ class Admin extends CI_Controller
         $data['growl'] = '0';
         $data['message'] = '';
         $data["roles"] = $this->admin_model->get_roles();
-
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
         $this->form_validation->set_rules('name', 'Name', 'required|regex_match[/^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$/]');
@@ -124,6 +123,7 @@ class Admin extends CI_Controller
         } else {
             $data["openUpdateEmployeeModal"] = true;
             $data["updationOfEmployeeTimeErrors"] = validation_errors();
+            $data["previousUpdationEmployeeData"] = $this->input->post();
         }
         $this->session->set_flashdata('reroute', $data);
         redirect(base_url('admin/employees'));

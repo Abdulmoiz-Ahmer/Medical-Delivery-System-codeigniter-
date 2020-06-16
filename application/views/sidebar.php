@@ -99,17 +99,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <li class="nav-item">
                                     <a class="<?php
                                                 echo "nav-link";
-                                                if ($this->uri->segment(2) == 'patients') {
-                                                    echo " active";
-                                                }
-                                                ?>" href="<?php echo base_url('/dashboard/patients') ?>">
-                                        <i class="ni ni-single-02 text-primary"></i>
-                                        <span class="nav-link-text">Patients</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="<?php
-                                                echo "nav-link";
                                                 if ($this->uri->segment(2) == 'prescription') {
                                                     echo " active";
                                                 }
@@ -118,7 +107,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <span class="nav-link-text">Prescription</span>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="<?php
                                                 echo "nav-link";
                                                 if ($this->uri->segment(2) == 'requests') {
@@ -128,13 +117,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <i class="ni ni-ambulance text-info"></i>
                                         <span class="nav-link-text">Requests</span>
                                     </a>
-                                </li>
+                                </li> -->
 
 
                                 <li class="nav-item">
                                     <a class="<?php
                                                 echo "nav-link";
-                                                if ($this->uri->segment(2) == 'stock') {
+                                                if ($this->uri->segment(2) == 'stocks') {
                                                     echo " active";
                                                 }
                                                 ?>" href="<?php echo base_url('/dashboard/stock') ?>">

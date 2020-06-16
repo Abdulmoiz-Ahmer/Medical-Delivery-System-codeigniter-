@@ -234,9 +234,8 @@ class Receptionist extends CI_Controller
                 $data['message'] = 'No such patient Exists';
             }
         } else {
-            echo "no";
-
             $data["openAddSessionModal"] = true;
+            $data["previousDataAddSession"] = $this->input->post();
             $data["errorsOfAddSession"] = validation_errors();
         }
         $this->session->set_flashdata('reroute', $data);
@@ -316,6 +315,7 @@ class Receptionist extends CI_Controller
             $data["doctorToBeAssigned"] = $this->receptionist_model->get_doctor($this->uri->segment(3));
             $data["doctorId"] = $this->uri->segment(3);
             $data["assignmentTimeErrors"] = validation_errors();
+            $data["previousAssignPatientData"] = $this->input->post();
             if (!empty($data["doctorToBeAssigned"])) {
                 $data["showAssignCreateModal"];
             } else {
@@ -327,7 +327,6 @@ class Receptionist extends CI_Controller
         $this->session->set_flashdata('reroute', $data);
         redirect(base_url('receptionist/allDoctors'));
     }
-
 
     public function deletePatient()
     {
@@ -419,7 +418,6 @@ class Receptionist extends CI_Controller
         $this->form_validation->set_rules('bday', 'Date of Birth', 'required');
         if ($this->form_validation->run() != FALSE) {
             $data['patient'] = $this->receptionist_model->get_patient($this->input->post('email'));
-            echo $data['patient'];
             if (empty($data['patient'])) {
                 $patient = array(
                     'name' => $this->input->post('name'),
@@ -445,6 +443,8 @@ class Receptionist extends CI_Controller
                 $data['message'] = 'Patient is already registered with this email!';
             }
         } else {
+            $data["patientAdditionTimeErrors"] = validation_errors();
+            $data["previousAddPatientData"] = $this->input->post();
             $data["openModal"] = 1;
         }
         $this->session->set_flashdata('reroute', $data);

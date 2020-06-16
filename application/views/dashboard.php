@@ -109,7 +109,21 @@ if (isset($openUpdateEmployeeModal) && $openUpdateEmployeeModal) {
     </script>
 <?php
 }
+if (isset($openStockAddModal) && $openStockAddModal) {
 ?>
+    <script type="text/javascript">
+        $(function() {
+            $('#AddStockModal').modal('show');
+        });
+    </script>
+<?php
+}
+?>
+
+
+
+
+
 
 </body>
 

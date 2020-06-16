@@ -125,8 +125,8 @@
                                      <div class="form-group">
 
                                          <label for="cnic">Patient's Cnic No.</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (!isset($clear)) {
-                                                                                                                // echo set_value('cnic');
+                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($previousAssignPatientData)) {
+                                                                                                                echo $previousAssignPatientData['cnic'];
                                                                                                             } else {
                                                                                                                 echo "";
                                                                                                             } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">

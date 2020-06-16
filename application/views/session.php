@@ -139,8 +139,8 @@
                                      <div class="form-group">
 
                                          <label for="cnic">CNIC</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (!isset($clear)) {
-                                                                                                                echo set_value('cnic');
+                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($previousDataAddSession)) {
+                                                                                                                echo $previousDataAddSession['cnic'];
                                                                                                             } else {
                                                                                                                 echo "";
                                                                                                             } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
@@ -148,8 +148,8 @@
 
                                      <div class="form-group">
                                          <label for="symptoms">Symptoms</label>
-                                         <textarea class="form-control" name="symptoms" placeholder="backpain ..." rows="3" required><?php if (!isset($clear)) {
-                                                                                                                                            echo trim(set_value('symptoms'));
+                                         <textarea class="form-control" name="symptoms" placeholder="backpain ..." rows="3" required><?php if (isset($previousDataAddSession)) {
+                                                                                                                                            echo $previousDataAddSession['symptoms'];
                                                                                                                                         } ?></textarea>
                                      </div>
 

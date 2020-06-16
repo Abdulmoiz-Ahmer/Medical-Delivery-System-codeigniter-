@@ -35,7 +35,6 @@ class MO extends CI_Controller
         $config['base_url'] = base_url('Mo/mypatients');
         $config['uri_segment'] = 3;
         $data["user"] = $this->session->userdata('user');
-
         $config['total_rows'] = $this->mo_model->get_mypatients_count($data["user"]["id"]);
         $config['per_page'] = $this->perPage;  // it display 10 records on per page
         $config['full_tag_open'] = '<ul class="pagination">';
@@ -109,6 +108,7 @@ class MO extends CI_Controller
         } else {
             $data["openAddPrescriptionModal"] = true;
             $data["additionOfPrescription"] = validation_errors();
+            $data["previousAddPrescripitionData"] = $this->input->post();
         }
         $this->session->set_flashdata('reroute', $data);
         redirect(base_url('Mo/mypatients'));

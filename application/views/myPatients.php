@@ -124,39 +124,31 @@
                                      <div class="form-group">
 
                                          <label for="cnic">Patient's Cnic No.</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($previousData)) {
-                                                                                                                echo $previousData["cnic"];
-                                                                                                            } else {
-                                                                                                                if (isset($patientToUpdate)) {
-                                                                                                                    echo $patientToUpdate['cnic'];
-                                                                                                                }
-                                                                                                            } ?>" name="cnic" type="text" pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$" required>
+                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($previousAddPrescripitionData)) {
+                                                                                                                echo $previousAddPrescripitionData["cnic"];
+                                                                                                            }  ?>" name="cnic" type="text" pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$" required>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="comment">Medicines</label>
-                                         <textarea class="form-control" name="gdetails" placeholder="Temazepam (Restoril) 2 times per day" rows="3" required><?php if (!isset($clear)) {
-                                                                                                                                                                    echo trim(set_value('gdetails'));
-                                                                                                                                                                } ?></textarea>
+                                         <textarea class="form-control" name="gdetails" placeholder="Temazepam (Restoril) 2 times per day" rows="3" required><?php if (isset($previousAddPrescripitionData)) {
+                                                                                                                                                                    echo $previousAddPrescripitionData["gdetails"];
+                                                                                                                                                                }  ?></textarea>
                                      </div>
 
 
                                      <div class="form-group">
 
                                          <label for="intake">Intake Duration</label>
-                                         <input class="form-control" placeholder="6 (in weeks)" value="<?php if (isset($previousData)) {
-                                                                                                            echo $previousData["intake"];
-                                                                                                        } else {
-                                                                                                            if (isset($patientToUpdate)) {
-                                                                                                                echo $patientToUpdate['intake'];
-                                                                                                            }
+                                         <input class="form-control" placeholder="6 (in weeks)" value="<?php if (isset($previousAddPrescripitionData)) {
+                                                                                                            echo $previousAddPrescripitionData["intake"];
                                                                                                         } ?>" name="intake" type="number" required>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="comment">Comment</label>
-                                         <textarea class="form-control" name="comment" placeholder="Additional doctors remarks..." rows="3" required><?php if (!isset($clear)) {
-                                                                                                                                                            echo trim(set_value('comment'));
+                                         <textarea class="form-control" name="comment" placeholder="Additional doctors remarks..." rows="3" required><?php if (isset($previousAddPrescripitionData)) {
+                                                                                                                                                            echo $previousAddPrescripitionData["comment"];
                                                                                                                                                         } ?></textarea>
                                      </div>
 

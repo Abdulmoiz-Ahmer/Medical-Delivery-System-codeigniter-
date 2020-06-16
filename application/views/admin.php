@@ -138,7 +138,9 @@
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
                                          <label for="name">Full Name</label>
-                                         <input class="form-control" placeholder="John Doe" name="name" value="<?php if (isset($employeeToUpdate)) {
+                                         <input class="form-control" placeholder="John Doe" name="name" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                                    echo $previousUpdationEmployeeData['name'];
+                                                                                                                } else if (isset($employeeToUpdate)) {
                                                                                                                     echo $employeeToUpdate['name'];
                                                                                                                 } else {
                                                                                                                     echo "";
@@ -147,7 +149,9 @@
 
                                      <div class="form-group">
                                          <label for="email">Email</label>
-                                         <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (isset($employeeToUpdate)) {
+                                         <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                                                echo $previousUpdationEmployeeData['email'];
+                                                                                                                            } else if (isset($employeeToUpdate)) {
                                                                                                                                 echo $employeeToUpdate['email'];
                                                                                                                             } else {
                                                                                                                                 echo "";
@@ -167,7 +171,9 @@
 
                                      <div class="form-group">
                                          <label for="department">Department</label>
-                                         <input class="form-control" placeholder="Administration" value="<?php if (isset($employeeToUpdate)) {
+                                         <input class="form-control" placeholder="Administration" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                                echo $previousUpdationEmployeeData['department'];
+                                                                                                            } else if (isset($employeeToUpdate)) {
                                                                                                                 echo $employeeToUpdate['department'];
                                                                                                             } else {
                                                                                                                 echo "";
@@ -177,7 +183,9 @@
 
                                      <div class="form-group">
                                          <label for="designation">Designation</label>
-                                         <input class="form-control" placeholder="Doctor" name="designation" value="<?php if (isset($employeeToUpdate)) {
+                                         <input class="form-control" placeholder="Doctor" name="designation" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                                        echo $previousUpdationEmployeeData['designation'];
+                                                                                                                    } else if (isset($employeeToUpdate)) {
                                                                                                                         echo $employeeToUpdate['designation'];
                                                                                                                     } else {
                                                                                                                         echo "";
@@ -190,7 +198,9 @@
                                          <label for="role">Role</label>
                                          <select class="form-control" name="role" required>
                                              <?php foreach ($roles as $role) : ?>
-                                                 <option value="<?php echo $role['id']; ?>" <?php if (isset($employeeToUpdate) && $employeeToUpdate["role_id"] == $role['id']) {
+                                                 <option value="<?php echo $role['id']; ?>" <?php if (isset($previousUpdationEmployeeData) && $previousUpdationEmployeeData['role'] == $role['id']) {
+                                                                                                echo "selected";
+                                                                                            } else if (isset($employeeToUpdate) && $employeeToUpdate["role_id"] == $role['id']) {
                                                                                                 echo "selected";
                                                                                             } ?>><?php echo $role['role_name']; ?></option>
                                              <?php endforeach; ?>
@@ -200,7 +210,9 @@
 
                                      <div class="form-group">
                                          <label for="salary">Salary</label>
-                                         <input class="form-control" placeholder="100000" value="<?php if (isset($employeeToUpdate)) {
+                                         <input class="form-control" placeholder="100000" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                        echo $previousUpdationEmployeeData['salary'];
+                                                                                                    } else if (isset($employeeToUpdate)) {
                                                                                                         echo $employeeToUpdate['salary'];
                                                                                                     } else {
                                                                                                         echo "";
@@ -212,7 +224,9 @@
 
                                      <div class="form-group">
                                          <label for="jdate">Date</label>
-                                         <input class="form-control" name="jdate" value="<?php if (isset($employeeToUpdate)) {
+                                         <input class="form-control" name="jdate" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                echo $previousUpdationEmployeeData['jdate'];
+                                                                                            } else if (isset($employeeToUpdate)) {
                                                                                                 echo strftime(
                                                                                                     '%Y-%m-%d',
                                                                                                     strtotime($employeeToUpdate['date_of_joining'])

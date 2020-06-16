@@ -138,17 +138,17 @@
                                  <form role="form" action="<?php echo base_url('receptionist/store') ?>" method="POST">
 
                                      <?php
-                                        if (validation_errors() != false) {
+                                        if (isset($patientAdditionTimeErrors)) {
                                             echo '<div class="bg-danger text-white border-1 rounded mb-3 p-3">';
-                                            echo validation_errors();
+                                            echo $patientAdditionTimeErrors;
                                             echo '</div>';
                                         }
                                         ?>
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
                                          <label for="name">Full Name</label>
-                                         <input class="form-control" placeholder="John Doe" name="name" value="<?php if (!isset($clear)) {
-                                                                                                                    echo set_value('name');
+                                         <input class="form-control" placeholder="John Doe" name="name" value="<?php if (isset($previousAddPatientData)) {
+                                                                                                                    echo $previousAddPatientData['name'];
                                                                                                                 } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
                                      </div>
 
@@ -158,8 +158,8 @@
                                      <div class="form-group">
 
                                          <label for="cnic">CNIC</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (!isset($clear)) {
-                                                                                                                echo set_value('cnic');
+                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($clear)) {
+                                                                                                                echo $previousAddPatientData['cnic'];
                                                                                                             } else {
                                                                                                                 echo "";
                                                                                                             } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
@@ -167,8 +167,8 @@
 
                                      <div class="form-group">
                                          <label for="email">Email</label>
-                                         <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (!isset($clear)) {
-                                                                                                                                echo set_value('email');
+                                         <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (isset($previousAddPatientData)) {
+                                                                                                                                echo $previousAddPatientData['email'];
                                                                                                                             } else {
                                                                                                                                 echo "";
                                                                                                                             }
@@ -178,13 +178,13 @@
 
                                      <div class="form-group">
                                          <label for="jdate">Date Of Birth</label>
-                                         <input class="form-control" name="bday" value="<?php echo set_value('bday'); ?>" type="date" required>
+                                         <input class="form-control" name="bday" value="<?php echo $previousAddPatientData['bday']; ?>" type="date" required>
 
                                      </div>
                                      <div class="form-group">
                                          <label for="address">Address</label>
-                                         <textarea class="form-control" name=" address" placeholder="123 Main Street, New York, NY 10030" rows="3" required><?php if (!isset($clear)) {
-                                                                                                                                                                echo trim(set_value('address'));
+                                         <textarea class="form-control" name="address" placeholder="123 Main Street, New York, NY 10030" rows="3" required><?php if (isset($previousAddPatientData)) {
+                                                                                                                                                                echo trim($previousAddPatientData['address']);
                                                                                                                                                             } ?></textarea>
                                      </div>
 
@@ -192,18 +192,18 @@
                                      <div class="form-group">
                                          <label for="gender">Gender</label>
                                          <select class="form-control" name="gender" required>
-                                             <option value="1" <?php if (!isset($clear)) {
-                                                                    if (set_value('gender') == 1) {
+                                             <option value="1" <?php if (isset($previousAddPatientData)) {
+                                                                    if ($previousAddPatientData['gender'] == 1) {
                                                                         echo "selected";
                                                                     }
                                                                 } else echo ""; ?>>Female</option>
-                                             <option value="2" <?php if (!isset($clear)) {
-                                                                    if (set_value('gender') == 2) {
+                                             <option value="2" <?php if (isset($previousAddPatientData)) {
+                                                                    if ($previousAddPatientData['gender'] == 2) {
                                                                         echo "selected";
                                                                     }
                                                                 } else echo ""; ?>>Male</option>
-                                             <option value="3" <?php if (!isset($clear)) {
-                                                                    if (set_value('gender') == 3) {
+                                             <option value="3" <?php if (isset($previousAddPatientData)) {
+                                                                    if ($previousAddPatientData['gender'] == 3) {
                                                                         echo "selected";
                                                                     }
                                                                 } else echo ""; ?>>Other</option>
