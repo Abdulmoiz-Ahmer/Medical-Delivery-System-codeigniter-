@@ -72,7 +72,6 @@
                                          <td class="text-center"><?php echo $patient['address'] ?></td>
                                          <td class="text-center"><?php
                                                                     if (!empty($patient['status'])) {
-                                                                        // echo $patient['status'];
                                                                         if ($patient['status'] == 1) {
                                                                             echo 'Active';
                                                                         } else {
@@ -96,7 +95,7 @@
                                                      <i class="fas fa-ellipsis-v"></i>
                                                  </a>
                                                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                     <a class="dropdown-item" href="<?php echo base_url('receptionist/deletePatient/') . $patient['pid'] ?>">Delete</a>
+                                                     <!-- <a class="dropdown-item" href="<?php echo base_url('receptionist/deletePatient/') . $patient['pid'] ?>">Delete</a> -->
                                                      <a class="dropdown-item" href="<?php echo base_url('receptionist/updatePatient/') . $patient['pid'] ?>">Update</a>
                                                  </div>
                                              </div>

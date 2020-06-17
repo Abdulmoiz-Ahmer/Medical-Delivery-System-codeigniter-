@@ -129,6 +129,16 @@ class Admin extends CI_Controller
         redirect(base_url('admin/employees'));
     }
 
+    public function deleteRequestEmployee()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $data["employeeId"] = $this->uri->segment(3);
+        $data["openDeleteEmployeeConfirmation"] = true;
+        $this->session->set_flashdata('reroute', $data);
+        redirect(base_url() . 'admin/employees');
+    }
+
     public function deleteEmployee()
     {
         $this->redirectIfNotLoggedIn();

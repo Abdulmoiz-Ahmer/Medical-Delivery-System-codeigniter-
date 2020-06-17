@@ -78,7 +78,7 @@
                                                      <i class="fas fa-ellipsis-v"></i>
                                                  </a>
                                                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                     <a class="dropdown-item" href="<?php echo base_url('admin/deleteEmployee/') . $employee['eid'] ?>">Delete</a>
+                                                     <a class="dropdown-item" href="<?php echo base_url('admin/deleteRequestEmployee/') . $employee['eid'] ?>">Delete</a>
                                                      <a class="dropdown-item" href="<?php echo base_url('admin/updateEmployee/') . $employee['eid'] ?>">Update</a>
                                                  </div>
                                              </div>
@@ -242,6 +242,36 @@
                                      <div class="clearfix" style="padding: '.5rem'">
                                          <button type="submit" class="btn btn-primary float-right">Save</button>
                                          <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+                                     </div>
+                                 </form>
+                             </div>
+
+                         </div>
+
+                     </div>
+                 </div>
+
+                 <div id="deleteEmployeeConfirmation" class="modal fade" role="dialog">
+                     <div class="modal-dialog">
+
+                         <!-- Modal content-->
+                         <div class="modal-content">
+                             <div class="modal-header">
+                                 <h4 class="modal-title">Are You Sure?</h4>
+                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                             </div>
+                             <div class="modal-body">
+                                 <form role="form" action="<?php
+                                                            if (isset($employeeId)) {
+                                                                echo base_url('admin/deleteEmployee/') . $employeeId;
+                                                            }
+                                                            ?>" method="POST">
+
+                                     <?php echo form_open(); ?>
+                                     <div class="clearfix" style="padding: '.5rem'">
+                                         <button type="submit" class="btn btn-primary float-right">Yes</button>
+                                         <button type="button" class="btn btn-danger float-left" data-dismiss="modal">No</button>
                                      </div>
                                  </form>
                              </div>

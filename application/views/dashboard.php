@@ -127,6 +127,16 @@ if (isset($openUpdateStockModal) && $openUpdateStockModal) {
     </script>
 <?php
 }
+if (isset($openDeleteEmployeeConfirmation) && $openDeleteEmployeeConfirmation) {
+?>
+    <script type="text/javascript">
+        $(function() {
+            $('#deleteEmployeeConfirmation').modal('show');
+        });
+    </script>
+<?php
+}
+
 ?>
 
 
