@@ -78,6 +78,16 @@ class Receptionist_model extends CI_Model
         return $query->row_array();
     }
 
+    public function get_patient_using_cnic_or_email($cnic, $email)
+    {
+        $this->db->select('*');
+        $this->db->from('Patients');
+        $this->db->where('cnic', $cnic);
+        $this->db->or_where('email', $email);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
     public function check_whether_patient_has_a_doctor($cnic)
     {
         $query = $this->db->get_where('Patients', array('cnic' => $cnic, 'assigned_mo!=' => NULL));
@@ -101,7 +111,7 @@ class Receptionist_model extends CI_Model
     public function get_all_sessions_of_patient_count($cnic)
     {
         $result = $this->get_patient_using_cnic($cnic);
-        if(!empty($result)){
+        if (!empty($result)) {
             return $this->db->where('p_id', $result["id"])->from("Sessions")->count_all_results();
         }
     }

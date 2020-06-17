@@ -62,7 +62,6 @@ class Auth extends CI_Controller
 				if (password_verify($this->input->post('password'), $user['user']["password"])) {
 					$this->session->set_userdata("user", $user['user']);
 					redirect(base_url() . 'dashboard/');
-					// return $this->load->view('dashboard');
 				}
 			}
 
@@ -76,7 +75,6 @@ class Auth extends CI_Controller
 	{
 		$this->redirectIfLoggedIn();
 		$data['roles'] = $this->auth_model->get_roles();
-		// print_r($data);
 		$this->load->view('register', $data);
 	}
 
@@ -105,7 +103,7 @@ class Auth extends CI_Controller
 		$this->form_validation->set_rules('jdate', 'Joining Date', 'required');
 
 		if ($this->form_validation->run() != FALSE) {
-			$data['user'] = $this->auth_model->get_user($this->input->post('email'));
+			$data['user'] = $this->auth_model->get_user_using_cnic_or_email($this->input->post('cnic'), $this->input->post('email'));
 			if (empty($data['user'])) {
 				$options = array("cost" => 10);
 				$hashPassword = password_hash($this->input->post('password'), PASSWORD_BCRYPT, $options);
@@ -130,7 +128,11 @@ class Auth extends CI_Controller
 				}
 			} else {
 				$data['growl'] = '-1';
-				$data['message'] = 'User is already registered with this email!';
+				if ($data['user']['email'] == $this->input->post('email')) {
+					$data['message'] = 'A User is already registered with this email!';
+				} else {
+					$data['message'] = 'A User is already registered with this cnic!';
+				}
 			}
 		}
 

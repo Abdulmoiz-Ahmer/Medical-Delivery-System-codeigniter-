@@ -417,7 +417,7 @@ class Receptionist extends CI_Controller
         $this->form_validation->set_rules('gender', 'Gender', 'required|is_natural_no_zero');
         $this->form_validation->set_rules('bday', 'Date of Birth', 'required');
         if ($this->form_validation->run() != FALSE) {
-            $data['patient'] = $this->receptionist_model->get_patient($this->input->post('email'));
+            $data['patient'] = $this->receptionist_model->get_patient_using_cnic_or_email($this->input->post('cnic'), $this->input->post('email'));
             if (empty($data['patient'])) {
                 $patient = array(
                     'name' => $this->input->post('name'),
@@ -440,7 +440,11 @@ class Receptionist extends CI_Controller
                 }
             } else {
                 $data['growl'] = '-1';
-                $data['message'] = 'Patient is already registered with this email!';
+                if ($data['patient']['email'] == $this->input->post('email')) {
+                    $data['message'] = 'A patient is already registered with this email!';
+                } else {
+                    $data['message'] = 'A patient is already registered with this cnic!';
+                }
             }
         } else {
             $data["patientAdditionTimeErrors"] = validation_errors();

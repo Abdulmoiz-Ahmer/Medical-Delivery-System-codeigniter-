@@ -18,6 +18,16 @@ class Auth_model extends CI_Model
         return $query->row_array();
     }
 
+    public function get_user_using_cnic_or_email($cnic, $email)
+    {
+        $this->db->select('*');
+        $this->db->from('Employee');
+        $this->db->where('cnic', $cnic);
+        $this->db->or_where('email', $email);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
     public function get_roles()
     {
         $query = $this->db->get('Roles');

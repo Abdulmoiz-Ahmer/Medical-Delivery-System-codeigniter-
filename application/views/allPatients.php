@@ -178,7 +178,9 @@
 
                                      <div class="form-group">
                                          <label for="jdate">Date Of Birth</label>
-                                         <input class="form-control" name="bday" value="<?php echo $previousAddPatientData['bday']; ?>" type="date" required>
+                                         <input class="form-control" name="bday" value="<?php if (isset($previousAddPatientData)) {
+                                                                                            echo $previousAddPatientData['bday'];
+                                                                                        } ?>" type="date" required>
 
                                      </div>
                                      <div class="form-group">
