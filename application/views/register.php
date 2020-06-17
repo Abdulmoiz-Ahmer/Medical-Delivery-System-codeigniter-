@@ -71,19 +71,17 @@
                                 ?>
                                 <?php echo form_open(); ?>
                                 <div class="form-group">
-                                    <!-- <div class="input-group input-group-merge input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                                        </div>
-                                    </div> -->
                                     <label for="name">Full Name</label>
-                                    <input class="form-control" placeholder="John Doe" name="name" value="<?php if (!isset($clear)) {
-                                                                                                                echo set_value('name');
-                                                                                                            } else {
-                                                                                                                echo "";
-                                                                                                            } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
-                                    <!-- pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" -->
-                                    <!-- required -->
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="John Doe" name="name" value="<?php if (!isset($clear)) {
+                                                                                                                    echo set_value('name');
+                                                                                                                } else {
+                                                                                                                    echo "";
+                                                                                                                } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -93,13 +91,17 @@
                                         </div>
                                     </div> -->
                                     <label for="email">Email</label>
-                                    <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (!isset($clear)) {
-                                                                                                                            echo set_value('email');
-                                                                                                                        } else {
-                                                                                                                            echo "";
-                                                                                                                        }
-                                                                                                                        ?>" type="email" required>
-
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (!isset($clear)) {
+                                                                                                                                echo set_value('email');
+                                                                                                                            } else {
+                                                                                                                                echo "";
+                                                                                                                            }
+                                                                                                                            ?>" type="email" required>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -109,12 +111,17 @@
                                         </div>
                                     </div> -->
                                     <label for="password">Password</label>
-                                    <input class="form-control" placeholder="Password" value="<?php if (!isset($clear)) {
-                                                                                                    echo set_value('password');
-                                                                                                } else {
-                                                                                                    echo "";
-                                                                                                } ?>" name="password" type="password" minlength="8" required>
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Password" value="<?php if (!isset($clear)) {
+                                                                                                        echo set_value('password');
+                                                                                                    } else {
+                                                                                                        echo "";
+                                                                                                    } ?>" name="password" type="password" minlength="8" required>
 
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -124,11 +131,16 @@
                                         </div>
                                     </div> -->
                                     <label for="cnic">CNIC</label>
-                                    <input class="form-control" placeholder="12345-1234567-8" value="<?php if (!isset($clear)) {
-                                                                                                            echo set_value('cnic');
-                                                                                                        } else {
-                                                                                                            echo "";
-                                                                                                        } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="12345-1234567-8" value="<?php if (!isset($clear)) {
+                                                                                                                echo set_value('cnic');
+                                                                                                            } else {
+                                                                                                                echo "";
+                                                                                                            } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -138,11 +150,16 @@
                                         </div>
                                     </div> -->
                                     <label for="department">Department</label>
-                                    <input class="form-control" placeholder="Administration" value="<?php if (!isset($clear)) {
-                                                                                                        echo set_value('department');
-                                                                                                    } else {
-                                                                                                        echo "";
-                                                                                                    } ?>" name="department" type="text" required pattern="[A-Za-z]+">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-building" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Administration" value="<?php if (!isset($clear)) {
+                                                                                                            echo set_value('department');
+                                                                                                        } else {
+                                                                                                            echo "";
+                                                                                                        } ?>" name="department" type="text" required pattern="[A-Za-z]+">
+                                    </div>
 
                                 </div>
 
@@ -153,12 +170,17 @@
                                         </div>
                                     </div> -->
                                     <label for="designation">Designation</label>
-                                    <input class="form-control" placeholder="Doctor" name="designation" value="<?php if (!isset($clear)) {
-                                                                                                                    echo set_value('designation');
-                                                                                                                } else {
-                                                                                                                    echo "";
-                                                                                                                }
-                                                                                                                ?>" type="text" required pattern="[A-Za-z]+">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Doctor" name="designation" value="<?php if (!isset($clear)) {
+                                                                                                                        echo set_value('designation');
+                                                                                                                    } else {
+                                                                                                                        echo "";
+                                                                                                                    }
+                                                                                                                    ?>" type="text" required pattern="[A-Za-z]+">
+                                    </div>
 
                                 </div>
 
@@ -169,13 +191,18 @@
                                         </div>
                                     </div> -->
                                     <label for="salary">Salary</label>
-                                    <input class="form-control" placeholder="100000" value="<?php if (!isset($clear)) {
-                                                                                                echo set_value('salary');
-                                                                                            } else {
-                                                                                                echo "";
-                                                                                            }
-                                                                                            ?>" name="salary" type="text" pattern="^[1-9]\d*(\.\d+)?$" required>
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="100000" value="<?php if (!isset($clear)) {
+                                                                                                    echo set_value('salary');
+                                                                                                } else {
+                                                                                                    echo "";
+                                                                                                }
+                                                                                                ?>" name="salary" type="text" pattern="^[1-9]\d*(\.\d+)?$" required>
 
+                                    </div>
                                 </div>
 
 
@@ -186,12 +213,17 @@
                                         </div>
                                     </div> -->
                                     <label for="jdate">Date</label>
-                                    <input class="form-control" name="jdate" value="<?php if (!isset($clear)) {
-                                                                                        echo set_value('jdate');
-                                                                                    } else {
-                                                                                        echo "";
-                                                                                    }
-                                                                                    ?>" type="date" required>
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                        </div>
+                                        <input class="form-control" name="jdate" value="<?php if (!isset($clear)) {
+                                                                                            echo set_value('jdate');
+                                                                                        } else {
+                                                                                            echo "";
+                                                                                        }
+                                                                                        ?>" type="date" required>
+                                    </div>
 
                                 </div>
 
@@ -201,8 +233,17 @@
                             </form>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="<?php echo base_url('/auth/') ?>" class="text-light"><small>Already Have an account? Login In</small></a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 

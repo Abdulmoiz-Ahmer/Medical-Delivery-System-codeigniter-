@@ -139,18 +139,28 @@
                                      <div class="form-group">
 
                                          <label for="cnic">CNIC</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($previousDataAddSession)) {
-                                                                                                                echo $previousDataAddSession['cnic'];
-                                                                                                            } else {
-                                                                                                                echo "";
-                                                                                                            } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($previousDataAddSession)) {
+                                                                                                                    echo $previousDataAddSession['cnic'];
+                                                                                                                } else {
+                                                                                                                    echo "";
+                                                                                                                } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="symptoms">Symptoms</label>
-                                         <textarea class="form-control" name="symptoms" placeholder="backpain ..." rows="3" required><?php if (isset($previousDataAddSession)) {
-                                                                                                                                            echo $previousDataAddSession['symptoms'];
-                                                                                                                                        } ?></textarea>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                                             </div>
+                                             <textarea class="form-control" name="symptoms" placeholder="backpain ..." rows="3" required><?php if (isset($previousDataAddSession)) {
+                                                                                                                                                echo $previousDataAddSession['symptoms'];
+                                                                                                                                            } ?></textarea>
+                                         </div>
                                      </div>
 
                                      <div class="clearfix" style="padding: '.5rem'">

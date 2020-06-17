@@ -151,9 +151,14 @@
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
                                          <label for="name">Full Name</label>
-                                         <input class="form-control" placeholder="John Doe" name="name" value="<?php if (isset($previousAddPatientData)) {
-                                                                                                                    echo $previousAddPatientData['name'];
-                                                                                                                } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="John Doe" name="name" value="<?php if (isset($previousAddPatientData)) {
+                                                                                                                        echo $previousAddPatientData['name'];
+                                                                                                                    } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         </div>
                                      </div>
 
 
@@ -162,58 +167,83 @@
                                      <div class="form-group">
 
                                          <label for="cnic">CNIC</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($clear)) {
-                                                                                                                echo $previousAddPatientData['cnic'];
-                                                                                                            } else {
-                                                                                                                echo "";
-                                                                                                            } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($clear)) {
+                                                                                                                    echo $previousAddPatientData['cnic'];
+                                                                                                                } else {
+                                                                                                                    echo "";
+                                                                                                                } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="email">Email</label>
-                                         <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (isset($previousAddPatientData)) {
-                                                                                                                                echo $previousAddPatientData['email'];
-                                                                                                                            } else {
-                                                                                                                                echo "";
-                                                                                                                            }
-                                                                                                                            ?>" type="email" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (isset($previousAddPatientData)) {
+                                                                                                                                    echo $previousAddPatientData['email'];
+                                                                                                                                } else {
+                                                                                                                                    echo "";
+                                                                                                                                }
+                                                                                                                                ?>" type="email" required>
 
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="jdate">Date Of Birth</label>
-                                         <input class="form-control" name="bday" value="<?php if (isset($previousAddPatientData)) {
-                                                                                            echo $previousAddPatientData['bday'];
-                                                                                        } ?>" type="date" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" name="bday" value="<?php if (isset($previousAddPatientData)) {
+                                                                                                echo $previousAddPatientData['bday'];
+                                                                                            } ?>" type="date" required>
 
+                                         </div>
                                      </div>
                                      <div class="form-group">
                                          <label for="address">Address</label>
-                                         <textarea class="form-control" name="address" placeholder="123 Main Street, New York, NY 10030" rows="3" required><?php if (isset($previousAddPatientData)) {
-                                                                                                                                                                echo trim($previousAddPatientData['address']);
-                                                                                                                                                            } ?></textarea>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-address-book" aria-hidden="true"></i></span>
+                                             </div>
+                                             <textarea class="form-control" name="address" placeholder="123 Main Street, New York, NY 10030" rows="3" required><?php if (isset($previousAddPatientData)) {
+                                                                                                                                                                    echo trim($previousAddPatientData['address']);
+                                                                                                                                                                } ?></textarea>
+                                         </div>
                                      </div>
 
 
                                      <div class="form-group">
                                          <label for="gender">Gender</label>
-                                         <select class="form-control" name="gender" required>
-                                             <option value="1" <?php if (isset($previousAddPatientData)) {
-                                                                    if ($previousAddPatientData['gender'] == 1) {
-                                                                        echo "selected";
-                                                                    }
-                                                                } else echo ""; ?>>Female</option>
-                                             <option value="2" <?php if (isset($previousAddPatientData)) {
-                                                                    if ($previousAddPatientData['gender'] == 2) {
-                                                                        echo "selected";
-                                                                    }
-                                                                } else echo ""; ?>>Male</option>
-                                             <option value="3" <?php if (isset($previousAddPatientData)) {
-                                                                    if ($previousAddPatientData['gender'] == 3) {
-                                                                        echo "selected";
-                                                                    }
-                                                                } else echo ""; ?>>Other</option>
-                                         </select>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-venus-mars" aria-hidden="true"></i></span>
+                                             </div>
+                                             <select class="form-control" name="gender" required>
+                                                 <option value="1" <?php if (isset($previousAddPatientData)) {
+                                                                        if ($previousAddPatientData['gender'] == 1) {
+                                                                            echo "selected";
+                                                                        }
+                                                                    } else echo ""; ?>>Female</option>
+                                                 <option value="2" <?php if (isset($previousAddPatientData)) {
+                                                                        if ($previousAddPatientData['gender'] == 2) {
+                                                                            echo "selected";
+                                                                        }
+                                                                    } else echo ""; ?>>Male</option>
+                                                 <option value="3" <?php if (isset($previousAddPatientData)) {
+                                                                        if ($previousAddPatientData['gender'] == 3) {
+                                                                            echo "selected";
+                                                                        }
+                                                                    } else echo ""; ?>>Other</option>
+                                             </select>
+                                         </div>
                                      </div>
 
 
@@ -257,16 +287,21 @@
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
                                          <label for="uname">Full Name</label>
-                                         <input class="form-control" placeholder="John Doe" name="uname" value="<?php
-                                                                                                                if (isset($previousData)) {
-                                                                                                                    echo $previousData["uname"];
-                                                                                                                } else {
-                                                                                                                    if (isset($patientToUpdate)) {
-                                                                                                                        echo $patientToUpdate['name'];
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="John Doe" name="uname" value="<?php
+                                                                                                                    if (isset($previousData)) {
+                                                                                                                        echo $previousData["uname"];
+                                                                                                                    } else {
+                                                                                                                        if (isset($patientToUpdate)) {
+                                                                                                                            echo $patientToUpdate['name'];
+                                                                                                                        }
                                                                                                                     }
-                                                                                                                }
 
-                                                                                                                ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                                                                                                    ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         </div>
                                      </div>
 
 
@@ -275,95 +310,125 @@
                                      <div class="form-group">
 
                                          <label for="ucnic">CNIC</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" disabled value="<?php if (isset($previousData)) {
-                                                                                                                        echo $previousData["ucnic"];
-                                                                                                                    } else {
-                                                                                                                        if (isset($patientToUpdate)) {
-                                                                                                                            echo $patientToUpdate['cnic'];
-                                                                                                                        }
-                                                                                                                    } ?>" name="ucnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="12345-1234567-8" disabled value="<?php if (isset($previousData)) {
+                                                                                                                            echo $previousData["ucnic"];
+                                                                                                                        } else {
+                                                                                                                            if (isset($patientToUpdate)) {
+                                                                                                                                echo $patientToUpdate['cnic'];
+                                                                                                                            }
+                                                                                                                        } ?>" name="ucnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="uemail">Email</label>
-                                         <input class="form-control" placeholder="johndoe@mail.domain" name="uemail" value="<?php if (isset($previousData)) {
-                                                                                                                                echo $previousData["uemail"];
-                                                                                                                            } else {
-                                                                                                                                if (isset($patientToUpdate)) {
-                                                                                                                                    echo $patientToUpdate['email'];
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="johndoe@mail.domain" name="uemail" value="<?php if (isset($previousData)) {
+                                                                                                                                    echo $previousData["uemail"];
+                                                                                                                                } else {
+                                                                                                                                    if (isset($patientToUpdate)) {
+                                                                                                                                        echo $patientToUpdate['email'];
+                                                                                                                                    }
                                                                                                                                 }
-                                                                                                                            }
-                                                                                                                            ?>" type="email" required>
+                                                                                                                                ?>" type="email" required>
 
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="jdate">Date Of Birth</label>
-                                         <input class="form-control" name="ubday" value="<?php if (isset($previousData)) {
-                                                                                                echo $previousData["ubday"];
-                                                                                            } else {
-                                                                                                if (isset($patientToUpdate) && $patientToUpdate['birthday']) {
-                                                                                                    echo strftime(
-                                                                                                        '%Y-%m-%d',
-                                                                                                        strtotime($patientToUpdate['birthday'])
-                                                                                                    );
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" name="ubday" value="<?php if (isset($previousData)) {
+                                                                                                    echo $previousData["ubday"];
+                                                                                                } else {
+                                                                                                    if (isset($patientToUpdate) && $patientToUpdate['birthday']) {
+                                                                                                        echo strftime(
+                                                                                                            '%Y-%m-%d',
+                                                                                                            strtotime($patientToUpdate['birthday'])
+                                                                                                        );
+                                                                                                    }
                                                                                                 }
-                                                                                            }
 
-                                                                                            ?>" type="date" required>
+                                                                                                ?>" type="date" required>
 
+                                         </div>
                                      </div>
                                      <div class="form-group">
                                          <label for="address">Address</label>
-                                         <textarea class="form-control" name="uaddress" placeholder="123 Main Street, New York, NY 10030" rows="3" required><?php if (isset($previousData)) {
-                                                                                                                                                                echo $previousData["uaddress"];
-                                                                                                                                                            } else {
-                                                                                                                                                                if (isset($patientToUpdate)) {
-                                                                                                                                                                    echo $patientToUpdate['address'];
-                                                                                                                                                                }
-                                                                                                                                                            } ?></textarea>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-address-book" aria-hidden="true"></i></span>
+                                             </div>
+                                             <textarea class="form-control" name="uaddress" placeholder="123 Main Street, New York, NY 10030" rows="3" required><?php if (isset($previousData)) {
+                                                                                                                                                                    echo $previousData["uaddress"];
+                                                                                                                                                                } else {
+                                                                                                                                                                    if (isset($patientToUpdate)) {
+                                                                                                                                                                        echo $patientToUpdate['address'];
+                                                                                                                                                                    }
+                                                                                                                                                                } ?></textarea>
+                                         </div>
                                      </div>
 
 
                                      <div class="form-group">
                                          <label for="gender">Gender</label>
-                                         <select class="form-control" name="ugender" disabled required>
-                                             <option value="1" <?php
-                                                                if (isset($previousData) && $previousData["ugender"] == 1) {
-                                                                    echo "selected";
-                                                                } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 1) {
-                                                                    echo "selected";
-                                                                }
-                                                                ?>>Female</option>
-                                             <option value="2" <?php if (isset($previousData) && $previousData["ugender"] == 2) {
-                                                                    echo "selected";
-                                                                } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 2) {
-                                                                    echo "selected";
-                                                                } ?>>Male</option>
-                                             <option value="3" <?php if (isset($previousData) && $previousData["ugender"] == 3) {
-                                                                    echo "selected";
-                                                                } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 3) {
-                                                                    echo "selected";
-                                                                } ?>>Other</option>
-                                         </select>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-venus-mars" aria-hidden="true"></i></span>
+                                             </div>
+                                             <select class="form-control" name="ugender" disabled required>
+                                                 <option value="1" <?php
+                                                                    if (isset($previousData) && $previousData["ugender"] == 1) {
+                                                                        echo "selected";
+                                                                    } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 1) {
+                                                                        echo "selected";
+                                                                    }
+                                                                    ?>>Female</option>
+                                                 <option value="2" <?php if (isset($previousData) && $previousData["ugender"] == 2) {
+                                                                        echo "selected";
+                                                                    } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 2) {
+                                                                        echo "selected";
+                                                                    } ?>>Male</option>
+                                                 <option value="3" <?php if (isset($previousData) && $previousData["ugender"] == 3) {
+                                                                        echo "selected";
+                                                                    } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 3) {
+                                                                        echo "selected";
+                                                                    } ?>>Other</option>
+                                             </select>
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="gender">Status</label>
-                                         <select class="form-control" name="ustatus" required>
-                                             <option value="0" <?php
-                                                                if (isset($previousData) && $previousData["ustatus"] == 0) {
-                                                                    echo "selected";
-                                                                } else if (isset($patientToUpdate) && $patientToUpdate["status"] == 0) {
-                                                                    echo "selected";
-                                                                }
-                                                                ?>>Inactive</option>
-                                             <option value="1" <?php if (isset($previousData) && $previousData["ustatus"] == 1) {
-                                                                    echo "selected";
-                                                                } else if (isset($patientToUpdate) && $patientToUpdate["status"] == 1) {
-                                                                    echo "selected";
-                                                                } ?>>Active</option>
-                                         </select>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-toggle-on" aria-hidden="true"></i></span>
+                                             </div>
+                                             <select class="form-control" name="ustatus" required>
+                                                 <option value="0" <?php
+                                                                    if (isset($previousData) && $previousData["ustatus"] == 0) {
+                                                                        echo "selected";
+                                                                    } else if (isset($patientToUpdate) && $patientToUpdate["status"] == 0) {
+                                                                        echo "selected";
+                                                                    }
+                                                                    ?>>Inactive</option>
+                                                 <option value="1" <?php if (isset($previousData) && $previousData["ustatus"] == 1) {
+                                                                        echo "selected";
+                                                                    } else if (isset($patientToUpdate) && $patientToUpdate["status"] == 1) {
+                                                                        echo "selected";
+                                                                    } ?>>Active</option>
+                                             </select>
+                                         </div>
                                      </div>
 
                                      <div class="clearfix" style="padding: '.5rem'">

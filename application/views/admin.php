@@ -138,104 +138,143 @@
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
                                          <label for="name">Full Name</label>
-                                         <input class="form-control" placeholder="John Doe" name="name" value="<?php if (isset($previousUpdationEmployeeData)) {
-                                                                                                                    echo $previousUpdationEmployeeData['name'];
-                                                                                                                } else if (isset($employeeToUpdate)) {
-                                                                                                                    echo $employeeToUpdate['name'];
-                                                                                                                } else {
-                                                                                                                    echo "";
-                                                                                                                } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="John Doe" name="name" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                                        echo $previousUpdationEmployeeData['name'];
+                                                                                                                    } else if (isset($employeeToUpdate)) {
+                                                                                                                        echo $employeeToUpdate['name'];
+                                                                                                                    } else {
+                                                                                                                        echo "";
+                                                                                                                    } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="email">Email</label>
-                                         <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (isset($previousUpdationEmployeeData)) {
-                                                                                                                                echo $previousUpdationEmployeeData['email'];
-                                                                                                                            } else if (isset($employeeToUpdate)) {
-                                                                                                                                echo $employeeToUpdate['email'];
-                                                                                                                            } else {
-                                                                                                                                echo "";
-                                                                                                                            }
-                                                                                                                            ?>" type="email" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="johndoe@mail.domain" name="email" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                                                    echo $previousUpdationEmployeeData['email'];
+                                                                                                                                } else if (isset($employeeToUpdate)) {
+                                                                                                                                    echo $employeeToUpdate['email'];
+                                                                                                                                } else {
+                                                                                                                                    echo "";
+                                                                                                                                }
+                                                                                                                                ?>" type="email" required>
 
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="cnic">CNIC</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" disabled value="<?php if (isset($employeeToUpdate)) {
-                                                                                                                        echo $employeeToUpdate['cnic'];
-                                                                                                                    } else {
-                                                                                                                        echo "";
-                                                                                                                    } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="12345-1234567-8" disabled value="<?php if (isset($employeeToUpdate)) {
+                                                                                                                            echo $employeeToUpdate['cnic'];
+                                                                                                                        } else {
+                                                                                                                            echo "";
+                                                                                                                        } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="department">Department</label>
-                                         <input class="form-control" placeholder="Administration" value="<?php if (isset($previousUpdationEmployeeData)) {
-                                                                                                                echo $previousUpdationEmployeeData['department'];
-                                                                                                            } else if (isset($employeeToUpdate)) {
-                                                                                                                echo $employeeToUpdate['department'];
-                                                                                                            } else {
-                                                                                                                echo "";
-                                                                                                            } ?>" name="department" type="text" required pattern="[A-Za-z]+">
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-building" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="Administration" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                                    echo $previousUpdationEmployeeData['department'];
+                                                                                                                } else if (isset($employeeToUpdate)) {
+                                                                                                                    echo $employeeToUpdate['department'];
+                                                                                                                } else {
+                                                                                                                    echo "";
+                                                                                                                } ?>" name="department" type="text" required pattern="[A-Za-z]+">
 
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="designation">Designation</label>
-                                         <input class="form-control" placeholder="Doctor" name="designation" value="<?php if (isset($previousUpdationEmployeeData)) {
-                                                                                                                        echo $previousUpdationEmployeeData['designation'];
-                                                                                                                    } else if (isset($employeeToUpdate)) {
-                                                                                                                        echo $employeeToUpdate['designation'];
-                                                                                                                    } else {
-                                                                                                                        echo "";
-                                                                                                                    }
-                                                                                                                    ?>" type="text" required pattern="[A-Za-z]+">
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="Doctor" name="designation" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                                            echo $previousUpdationEmployeeData['designation'];
+                                                                                                                        } else if (isset($employeeToUpdate)) {
+                                                                                                                            echo $employeeToUpdate['designation'];
+                                                                                                                        } else {
+                                                                                                                            echo "";
+                                                                                                                        }
+                                                                                                                        ?>" type="text" required pattern="[A-Za-z]+">
 
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="role">Role</label>
-                                         <select class="form-control" name="role" required>
-                                             <?php foreach ($roles as $role) : ?>
-                                                 <option value="<?php echo $role['id']; ?>" <?php if (isset($previousUpdationEmployeeData) && $previousUpdationEmployeeData['role'] == $role['id']) {
-                                                                                                echo "selected";
-                                                                                            } else if (isset($employeeToUpdate) && $employeeToUpdate["role_id"] == $role['id']) {
-                                                                                                echo "selected";
-                                                                                            } ?>><?php echo $role['role_name']; ?></option>
-                                             <?php endforeach; ?>
-                                         </select>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+                                             </div>
+                                             <select class="form-control" name="role" required>
+                                                 <?php foreach ($roles as $role) : ?>
+                                                     <option value="<?php echo $role['id']; ?>" <?php if (isset($previousUpdationEmployeeData) && $previousUpdationEmployeeData['role'] == $role['id']) {
+                                                                                                    echo "selected";
+                                                                                                } else if (isset($employeeToUpdate) && $employeeToUpdate["role_id"] == $role['id']) {
+                                                                                                    echo "selected";
+                                                                                                } ?>><?php echo $role['role_name']; ?></option>
+                                                 <?php endforeach; ?>
+                                             </select>
+                                         </div>
                                      </div>
-
 
                                      <div class="form-group">
                                          <label for="salary">Salary</label>
-                                         <input class="form-control" placeholder="100000" value="<?php if (isset($previousUpdationEmployeeData)) {
-                                                                                                        echo $previousUpdationEmployeeData['salary'];
-                                                                                                    } else if (isset($employeeToUpdate)) {
-                                                                                                        echo $employeeToUpdate['salary'];
-                                                                                                    } else {
-                                                                                                        echo "";
-                                                                                                    }
-                                                                                                    ?>" name="salary" type="text" pattern="^[1-9]\d*(\.\d+)?$" required>
 
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="100000" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                            echo $previousUpdationEmployeeData['salary'];
+                                                                                                        } else if (isset($employeeToUpdate)) {
+                                                                                                            echo $employeeToUpdate['salary'];
+                                                                                                        } else {
+                                                                                                            echo "";
+                                                                                                        }
+                                                                                                        ?>" name="salary" type="text" pattern="^[1-9]\d*(\.\d+)?$" required>
+
+                                         </div>
                                      </div>
-
 
                                      <div class="form-group">
                                          <label for="jdate">Date</label>
-                                         <input class="form-control" name="jdate" value="<?php if (isset($previousUpdationEmployeeData)) {
-                                                                                                echo $previousUpdationEmployeeData['jdate'];
-                                                                                            } else if (isset($employeeToUpdate)) {
-                                                                                                echo strftime(
-                                                                                                    '%Y-%m-%d',
-                                                                                                    strtotime($employeeToUpdate['date_of_joining'])
-                                                                                                );
-                                                                                            } else {
-                                                                                                echo "";
-                                                                                            }
-                                                                                            ?>" type="date" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" name="jdate" value="<?php if (isset($previousUpdationEmployeeData)) {
+                                                                                                    echo $previousUpdationEmployeeData['jdate'];
+                                                                                                } else if (isset($employeeToUpdate)) {
+                                                                                                    echo strftime(
+                                                                                                        '%Y-%m-%d',
+                                                                                                        strtotime($employeeToUpdate['date_of_joining'])
+                                                                                                    );
+                                                                                                } else {
+                                                                                                    echo "";
+                                                                                                }
+                                                                                                ?>" type="date" required>
 
+                                         </div>
                                      </div>
 
 

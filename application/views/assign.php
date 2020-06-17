@@ -112,11 +112,16 @@
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
                                          <label for="name">Doctor's Name</label>
-                                         <input class="form-control" placeholder="John Doe" name="name" disabled value="<?php
-                                                                                                                        if (isset($doctorToBeAssigned["name"])) {
-                                                                                                                            echo $doctorToBeAssigned["name"];
-                                                                                                                        }
-                                                                                                                        ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="John Doe" name="name" disabled value="<?php
+                                                                                                                            if (isset($doctorToBeAssigned["name"])) {
+                                                                                                                                echo $doctorToBeAssigned["name"];
+                                                                                                                            }
+                                                                                                                            ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         </div>
                                      </div>
 
 
@@ -125,11 +130,16 @@
                                      <div class="form-group">
 
                                          <label for="cnic">Patient's Cnic No.</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($previousAssignPatientData)) {
-                                                                                                                echo $previousAssignPatientData['cnic'];
-                                                                                                            } else {
-                                                                                                                echo "";
-                                                                                                            } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="12345-1234567-8" value="<?php if (isset($previousAssignPatientData)) {
+                                                                                                                    echo $previousAssignPatientData['cnic'];
+                                                                                                                } else {
+                                                                                                                    echo "";
+                                                                                                                } ?>" name="cnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         </div>
                                      </div>
 
                                      <div class="clearfix" style="padding: '.5rem'">

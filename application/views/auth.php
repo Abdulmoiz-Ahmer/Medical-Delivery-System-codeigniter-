@@ -166,17 +166,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 								<?php echo form_open(); ?>
 								<div class="form-group mb-3">
 									<div class="input-group input-group-merge input-group-alternative">
-										<!-- <div class="input-group-prepend">
-											<span class="input-group-text"><i class="ni ni-email-83"></i></span>
-										</div> -->
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
+										</div>
 										<input class="form-control" value="<?php echo set_value('email'); ?>" name="email" placeholder="Email" type="email" required>
 									</div>
 								</div>
 								<div class="form-group mb-1">
 									<div class="input-group input-group-merge input-group-alternative">
-										<!-- <div class="input-group-prepend">
-											<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-										</div> -->
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+										</div>
 										<input class="form-control" value="<?php echo set_value('password'); ?>" name="password" placeholder="Password" type="password" required minlength="8">
 									</div>
 								</div>

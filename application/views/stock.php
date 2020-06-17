@@ -125,18 +125,28 @@
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
                                          <label for="name">Name</label>
-                                         <input class="form-control" placeholder="Ativan" name="name" value="<?php if (isset($previousAdditionStockData)) {
-                                                                                                                    echo $previousAdditionStockData['name'];
-                                                                                                                } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="Ativan" name="name" value="<?php if (isset($previousAdditionStockData)) {
+                                                                                                                        echo $previousAdditionStockData['name'];
+                                                                                                                    } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         </div>
                                      </div>
-
+                                     <!-- <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> -->
                                      <div class="form-group">
                                          <label for="name">Weight</label>
                                          <div class="form-row">
                                              <div class="col-8">
-                                                 <input class="form-control" placeholder="4" name="weight" value="<?php if (isset($previousAdditionStockData)) {
-                                                                                                                        echo $previousAdditionStockData['weight'];
-                                                                                                                    } ?>" type="number" min="1" required>
+                                                 <div class="input-group input-group-merge input-group-alternative">
+                                                     <div class="input-group-prepend">
+                                                         <span class="input-group-text"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+                                                     </div>
+                                                     <input class="form-control" placeholder="4" name="weight" value="<?php if (isset($previousAdditionStockData)) {
+                                                                                                                            echo $previousAdditionStockData['weight'];
+                                                                                                                        } ?>" type="number" min="1" required>
+                                                 </div>
                                              </div>
 
                                              <div class="col-4">
@@ -169,41 +179,64 @@
 
                                      <div class="form-group">
                                          <label for="name">Unit Price</label>
-                                         <input class="form-control" placeholder="4" name="unit_price" value="<?php if (isset($previousAdditionStockData)) {
-                                                                                                                    echo $previousAdditionStockData['unit_price'];
-                                                                                                                } ?>" type="number" min="1" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="4" name="unit_price" value="<?php if (isset($previousAdditionStockData)) {
+                                                                                                                        echo $previousAdditionStockData['unit_price'];
+                                                                                                                    } ?>" type="number" min="1" required>
+                                         </div>
                                      </div>
-
 
                                      <div class="form-group">
                                          <label for="name">Quantity</label>
-                                         <input class="form-control" placeholder="4" name="quantity" value="<?php if (isset($previousAdditionStockData)) {
-                                                                                                                echo $previousAdditionStockData['quantity'];
-                                                                                                            } ?>" type="number" min="1" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="4" name="quantity" value="<?php if (isset($previousAdditionStockData)) {
+                                                                                                                    echo $previousAdditionStockData['quantity'];
+                                                                                                                } ?>" type="number" min="1" required>
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="name">Cost Price</label>
-                                         <input class="form-control" placeholder="4" name="cost_price" value="<?php if (isset($previousAdditionStockData)) {
-                                                                                                                    echo $previousAdditionStockData['cost_price'];
-                                                                                                                } ?>" type="number" min="1" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="4" name="cost_price" value="<?php if (isset($previousAdditionStockData)) {
+                                                                                                                        echo $previousAdditionStockData['cost_price'];
+                                                                                                                    } ?>" type="number" min="1" required>
+                                         </div>
                                      </div>
 
 
                                      <div class="form-group">
                                          <label for="mdate">Manufacturing Date</label>
-                                         <input class="form-control" name="mdate" value="<?php if (isset($previousAdditionStockData)) {
-                                                                                                echo $previousAdditionStockData['mdate'];
-                                                                                            } ?>" type="date" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" name="mdate" value="<?php if (isset($previousAdditionStockData)) {
+                                                                                                    echo $previousAdditionStockData['mdate'];
+                                                                                                } ?>" type="date" required>
 
+                                         </div>
                                      </div>
-
                                      <div class="form-group">
                                          <label for="edate">Expiry Date</label>
-                                         <input class="form-control" name="edate" value="<?php if (isset($previousAdditionStockData)) {
-                                                                                                echo $previousAdditionStockData['edate'];
-                                                                                            } ?>" type="date" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" name="edate" value="<?php if (isset($previousAdditionStockData)) {
+                                                                                                    echo $previousAdditionStockData['edate'];
+                                                                                                } ?>" type="date" required>
 
+                                         </div>
                                      </div>
 
 
@@ -248,24 +281,33 @@
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
                                          <label for="name">Name</label>
-                                         <input class="form-control" placeholder="Ativan" name="name" value="<?php if (isset($previousUpdationStockData)) {
-                                                                                                                    echo $previousUpdationStockData['name'];
-                                                                                                                } else if (isset($stockToUpdate)) {
-                                                                                                                    echo  $stockToUpdate[0]['name'];
-                                                                                                                } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="Ativan" name="name" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                        echo $previousUpdationStockData['name'];
+                                                                                                                    } else if (isset($stockToUpdate)) {
+                                                                                                                        echo  $stockToUpdate[0]['name'];
+                                                                                                                    } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="name">Weight</label>
                                          <div class="form-row">
                                              <div class="col-8">
-                                                 <input class="form-control" placeholder="4" name="weight" value="<?php if (isset($previousUpdationStockData)) {
-                                                                                                                        echo $previousUpdationStockData['weight'];
-                                                                                                                    } else if (isset($stockToUpdate)) {
-                                                                                                                        echo  $stockToUpdate[0]['weight'];
-                                                                                                                    }  ?>" type="number" min="1" required>
+                                                 <div class="input-group input-group-merge input-group-alternative">
+                                                     <div class="input-group-prepend">
+                                                         <span class="input-group-text"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></span>
+                                                     </div>
+                                                     <input class="form-control" placeholder="4" name="weight" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                            echo $previousUpdationStockData['weight'];
+                                                                                                                        } else if (isset($stockToUpdate)) {
+                                                                                                                            echo  $stockToUpdate[0]['weight'];
+                                                                                                                        }  ?>" type="number" min="1" required>
+                                                 </div>
                                              </div>
-
                                              <div class="col-4">
                                                  <select class="form-control" name="weight_unit" required>
                                                      <option value="kg" <?php if (isset($previousUpdationStockData)) {
@@ -304,59 +346,82 @@
 
                                      <div class="form-group">
                                          <label for="name">Unit Price</label>
-                                         <input class="form-control" placeholder="4" name="unit_price" value="<?php if (isset($previousUpdationStockData)) {
-                                                                                                                    echo $previousUpdationStockData['unit_price'];
-                                                                                                                } else if (isset($stockToUpdate)) {
-                                                                                                                    echo  $stockToUpdate[0]['unit_price'];
-                                                                                                                }  ?>" type="number" min="1" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="4" name="unit_price" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                        echo $previousUpdationStockData['unit_price'];
+                                                                                                                    } else if (isset($stockToUpdate)) {
+                                                                                                                        echo  $stockToUpdate[0]['unit_price'];
+                                                                                                                    }  ?>" type="number" min="1" required>
+                                         </div>
                                      </div>
 
 
                                      <div class="form-group">
                                          <label for="name">Quantity</label>
-                                         <input class="form-control" placeholder="4" name="quantity" value="<?php if (isset($previousUpdationStockData)) {
-                                                                                                                echo $previousUpdationStockData['quantity'];
-                                                                                                            } else if (isset($stockToUpdate)) {
-                                                                                                                echo  $stockToUpdate[0]['quantity'];
-                                                                                                            }  ?>" type="number" min="1" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-list-ol" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="4" name="quantity" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                    echo $previousUpdationStockData['quantity'];
+                                                                                                                } else if (isset($stockToUpdate)) {
+                                                                                                                    echo  $stockToUpdate[0]['quantity'];
+                                                                                                                }  ?>" type="number" min="1" required>
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
                                          <label for="name">Cost Price</label>
-                                         <input class="form-control" placeholder="4" name="cost_price" value="<?php if (isset($previousUpdationStockData)) {
-                                                                                                                    echo $previousUpdationStockData['cost_price'];
-                                                                                                                } else if (isset($stockToUpdate)) {
-                                                                                                                    echo  $stockToUpdate[0]['cost_price'];
-                                                                                                                }  ?>" type="number" min="1" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" placeholder="4" name="cost_price" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                        echo $previousUpdationStockData['cost_price'];
+                                                                                                                    } else if (isset($stockToUpdate)) {
+                                                                                                                        echo  $stockToUpdate[0]['cost_price'];
+                                                                                                                    }  ?>" type="number" min="1" required>
+                                         </div>
                                      </div>
 
 
                                      <div class="form-group">
                                          <label for="mdate">Manufacturing Date</label>
-                                         <input class="form-control" name="mdate" value="<?php if (isset($previousUpdationStockData)) {
-                                                                                                echo $previousUpdationStockData['mdate'];
-                                                                                            } else if (isset($stockToUpdate)) {
-                                                                                                echo strftime(
-                                                                                                    '%Y-%m-%d',
-                                                                                                    strtotime($stockToUpdate[0]['date'])
-                                                                                                );
-                                                                                            }  ?>" type="date" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" name="mdate" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                    echo $previousUpdationStockData['mdate'];
+                                                                                                } else if (isset($stockToUpdate)) {
+                                                                                                    echo strftime(
+                                                                                                        '%Y-%m-%d',
+                                                                                                        strtotime($stockToUpdate[0]['date'])
+                                                                                                    );
+                                                                                                }  ?>" type="date" required>
 
+                                         </div>
                                      </div>
-
                                      <div class="form-group">
                                          <label for="edate">Expiry Date</label>
-                                         <input class="form-control" name="edate" value="<?php if (isset($previousUpdationStockData)) {
-                                                                                                echo $previousUpdationStockData['edate'];
-                                                                                            } else if (isset($stockToUpdate)) {
-                                                                                                echo strftime(
-                                                                                                    '%Y-%m-%d',
-                                                                                                    strtotime($stockToUpdate[0]['expiry'])
-                                                                                                );
-                                                                                            }  ?>" type="date" required>
+                                         <div class="input-group input-group-merge input-group-alternative">
+                                             <div class="input-group-prepend">
+                                                 <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                                             </div>
+                                             <input class="form-control" name="edate" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                    echo $previousUpdationStockData['edate'];
+                                                                                                } else if (isset($stockToUpdate)) {
+                                                                                                    echo strftime(
+                                                                                                        '%Y-%m-%d',
+                                                                                                        strtotime($stockToUpdate[0]['expiry'])
+                                                                                                    );
+                                                                                                }  ?>" type="date" required>
 
+                                         </div>
                                      </div>
-
 
 
                                      <div class="clearfix" style="padding: '.5rem'">
