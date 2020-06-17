@@ -136,6 +136,15 @@ if (isset($openDeleteEmployeeConfirmation) && $openDeleteEmployeeConfirmation) {
     </script>
 <?php
 }
+if (isset($openSendRequestConfirmationModal) && $openSendRequestConfirmationModal) {
+?>
+    <script type="text/javascript">
+        $(function() {
+            $('#sendRequestConfirmationModal').modal('show');
+        });
+    </script>
+<?php
+}
 
 ?>
 

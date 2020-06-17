@@ -168,6 +168,16 @@ class Msa extends CI_Controller
         $this->redirectToAllPrescriptions($config, $page, $data);
     }
 
+    public function RequestConfirmationModal()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $data["prescriptionId"] = $this->uri->segment(3);
+        $data["openSendRequestConfirmationModal"] = true;
+        $this->session->set_flashdata('reroute', $data);
+        redirect(base_url() . 'Msa/prescription');
+    }
+
     public function addStockData()
     {
         $this->redirectIfNotLoggedIn();
