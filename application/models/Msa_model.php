@@ -45,7 +45,7 @@ class Msa_model extends CI_Model
 
     public function get_particular_prescription($id)
     {
-        $this->db->select('Prescriptions.id as pr_id,Prescriptions.general_details,  Patients.email');
+        $this->db->select('Prescriptions.id as pr_id,Prescriptions.general_details,  Patients.email, Patients.status');
         $this->db->from('Prescriptions');
         $this->db->join('Patients', 'Prescriptions.patient_id = Patients.id', 'left');
         $this->db->where('Prescriptions.id', $id);

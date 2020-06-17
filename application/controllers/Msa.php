@@ -113,27 +113,32 @@ class Msa extends CI_Controller
 
         $data['prescription'] = $this->msa_model->get_particular_prescription($this->uri->segment(3));
         if (!empty($data['prescription'])) {
-            $this->load->library('email');
+            if ($data['prescription'][0]['status'] == 1) {
+                $this->load->library('email');
 
-            $this->email->initialize(array(
-                'protocol' => 'smtp',
-                'smtp_host' => 'smtp.sendgrid.net',
-                'smtp_user' => 'apikey',
-                'smtp_pass' => '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',
-                'smtp_port' => 587,
-                'crlf' => "\r\n",
-                'newline' => "\r\n"
-            ));
+                $this->email->initialize(array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'smtp.sendgrid.net',
+                    'smtp_user' => 'apikey',
+                    'smtp_pass' => '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',
+                    'smtp_port' => 587,
+                    'crlf' => "\r\n",
+                    'newline' => "\r\n"
+                ));
 
-            $this->email->from('moiz@mangocoders.com', 'MDS');
-            $this->email->to($data['prescription'][0]['email']);
-            $this->email->subject('Request to send Medicine...');
-            $this->email->message($data['prescription'][0]['general_details']);
-            $this->email->send();
+                $this->email->from('moiz@mangocoders.com', 'MDS');
+                $this->email->to($data['prescription'][0]['email']);
+                $this->email->subject('Request to send Medicine...');
+                $this->email->message($data['prescription'][0]['general_details']);
+                $this->email->send();
 
-            echo $this->email->print_debugger();
-            $data['growl'] = '1';
-            $data['message'] = 'Request sent to the patient!';
+                echo $this->email->print_debugger();
+                $data['growl'] = '1';
+                $data['message'] = 'Request sent to the patient!';
+            } else {
+                $data['growl'] = '-1';
+                $data['message'] = 'Patient is Inactive...';
+            }
         } else {
             $data['growl'] = '-1';
             $data['message'] = 'No such patient Exists';

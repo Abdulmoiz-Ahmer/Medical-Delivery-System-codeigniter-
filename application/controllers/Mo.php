@@ -111,7 +111,7 @@ class MO extends CI_Controller
             $data["previousAddPrescripitionData"] = $this->input->post();
         }
         $this->session->set_flashdata('reroute', $data);
-        redirect(base_url('Mo/mypatients'));
+        // redirect(base_url('Mo/mypatients'));
     }
 
     private function redirectIfNotLoggedIn()

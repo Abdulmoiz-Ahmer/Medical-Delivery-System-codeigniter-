@@ -206,28 +206,32 @@ class Receptionist extends CI_Controller
         if ($this->form_validation->run() != FALSE) {
             $data['patient'] = $this->receptionist_model->get_patient_using_cnic($this->input->post('cnic'));
             if (!empty($data['patient'])) {
+                if ($data['patient']['status'] == 1) {
+                    if (!empty($this->receptionist_model->check_whether_patient_has_a_doctor($this->input->post('cnic')))) {
+                        $session = array(
+                            'p_id' => $data['patient']['id'],
+                            'mo_id' => $data['patient']['assigned_mo'],
+                            'symptoms' => $this->input->post('symptoms'),
+                            'added_by' =>  $data["user"]["id"],
+                        );
 
-                if (!empty($this->receptionist_model->check_whether_patient_has_a_doctor($this->input->post('cnic')))) {
-                    $session = array(
-                        'p_id' => $data['patient']['id'],
-                        'mo_id' => $data['patient']['assigned_mo'],
-                        'symptoms' => $this->input->post('symptoms'),
-                        'added_by' =>  $data["user"]["id"],
-                    );
-
-                    $status = $this->receptionist_model->set_session($session);
-                    if ($status == 1 || $status == '1') {
-                        $data['growl'] = '1';
-                        $data['message'] = 'Patient session is successfully recorded!';
-                        $data['clear'] =  true;
-                        $data["openModal"] = 0;
+                        $status = $this->receptionist_model->set_session($session);
+                        if ($status == 1 || $status == '1') {
+                            $data['growl'] = '1';
+                            $data['message'] = 'Patient session is successfully recorded!';
+                            $data['clear'] =  true;
+                            $data["openModal"] = 0;
+                        } else {
+                            $data['growl'] = '-1';
+                            $data['message'] = 'Something Went Wrong!';
+                        }
                     } else {
                         $data['growl'] = '-1';
-                        $data['message'] = 'Something Went Wrong!';
+                        $data['message'] = 'No Doctor assigned to this patient';
                     }
                 } else {
                     $data['growl'] = '-1';
-                    $data['message'] = 'No Doctor assigned to this patient';
+                    $data['message'] = 'Patient is Inactive, set it to active...';
                 }
             } else {
                 $data['growl'] = '-1';
