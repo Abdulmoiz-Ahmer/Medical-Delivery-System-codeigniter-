@@ -14,7 +14,7 @@ class Mo_model extends CI_Model
 
     public function get_mypatients($mo_id, $limit, $start = 1)
     {
-        $this->db->select('Patients.id as pid,Patients.name as pname,Patients.assigned_mo,Patients.gender,Patients.birthday,Patients.cnic,Patients.email,Patients.address,Patients.email');
+        $this->db->select('Patients.id as pid, Patients.status, Patients.name as pname,Patients.assigned_mo,Patients.gender,Patients.birthday,Patients.cnic,Patients.email,Patients.address,Patients.email');
         $this->db->from('Patients');
         $this->db->limit($limit, $start);
         $this->db->where("Patients.assigned_mo=" . $mo_id);

@@ -72,9 +72,14 @@
                                          <td class="text-center"><?php echo $patient['address'] ?></td>
                                          <td class="text-center"><?php
                                                                     if (!empty($patient['status'])) {
-                                                                        echo $patient['status'];
+                                                                        // echo $patient['status'];
+                                                                        if ($patient['status'] == 1) {
+                                                                            echo 'Active';
+                                                                        } else {
+                                                                            echo 'Inactive';
+                                                                        }
                                                                     } else {
-                                                                        echo '-';
+                                                                        echo 'Inactive';
                                                                     }
                                                                     ?></td>
                                          <td class="text-center">
@@ -344,6 +349,23 @@
                                          </select>
                                      </div>
 
+                                     <div class="form-group">
+                                         <label for="gender">Status</label>
+                                         <select class="form-control" name="ustatus" required>
+                                             <option value="0" <?php
+                                                                if (isset($previousData) && $previousData["ustatus"] == 0) {
+                                                                    echo "selected";
+                                                                } else if (isset($patientToUpdate) && $patientToUpdate["status"] == 0) {
+                                                                    echo "selected";
+                                                                }
+                                                                ?>>Inactive</option>
+                                             <option value="1" <?php if (isset($previousData) && $previousData["ustatus"] == 1) {
+                                                                    echo "selected";
+                                                                } else if (isset($patientToUpdate) && $patientToUpdate["status"] == 1) {
+                                                                    echo "selected";
+                                                                } ?>>Active</option>
+                                         </select>
+                                     </div>
 
                                      <div class="clearfix" style="padding: '.5rem'">
                                          <button type="submit" class="btn btn-primary float-right">Save</button>

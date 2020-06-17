@@ -60,7 +60,18 @@
                                          <td class="text-center"><?php echo $prescription['name'] ?></td>
                                          <td class="text-center"><?php echo $prescription['email'] ?></td>
                                          <td class="text-center"><?php echo $prescription['address'] ?></td>
-                                         <td class="text-center"><?php echo $prescription['status'] != NULL ? $prescription['status'] : '-' ?></td>
+                                         <td class="text-center"><?php
+                                                                    if (!empty($patient['status'])) {
+                                                                        // echo $patient['status'];
+                                                                        if ($patient['status'] == 1) {
+                                                                            echo 'Active';
+                                                                        } else {
+                                                                            echo 'Inactive';
+                                                                        }
+                                                                    } else {
+                                                                        echo 'Inactive';
+                                                                    }
+                                                                    ?></td>
                                          <td class="text-center"><?php echo $prescription['general_details'] ?></td>
                                          <td class="text-center"><?php echo $prescription['intake_duration'] ?></td>
                                          <td class="text-center"><?php echo $prescription['dname'] ?></td>

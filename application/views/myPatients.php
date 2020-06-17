@@ -70,9 +70,14 @@
                                          <td class="text-center"><?php echo $patient['address'] ?></td>
                                          <td class="text-center"><?php
                                                                     if (!empty($patient['status'])) {
-                                                                        echo $patient['status'];
+                                                                        // echo $patient['status'];
+                                                                        if ($patient['status'] == 1) {
+                                                                            echo 'Active';
+                                                                        } else {
+                                                                            echo 'Inactive';
+                                                                        }
                                                                     } else {
-                                                                        echo '-';
+                                                                        echo 'Inactive';
                                                                     }
                                                                     ?></td>
                                      </tr>

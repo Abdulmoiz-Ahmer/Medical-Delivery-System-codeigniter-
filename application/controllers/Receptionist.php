@@ -369,6 +369,8 @@ class Receptionist extends CI_Controller
         $this->form_validation->set_rules('uemail', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('uaddress', 'Address', 'required');
         $this->form_validation->set_rules('ubday', 'Date of Birth', 'required');
+        $this->form_validation->set_rules('ustatus', 'Status', 'required');
+
         if ($this->form_validation->run() != FALSE) {
 
             $data['patient'] = $this->receptionist_model->get_particular_patient2($this->uri->segment(3));
@@ -378,6 +380,7 @@ class Receptionist extends CI_Controller
                     'email' => $this->input->post('uemail'),
                     'address' => $this->input->post('uaddress'),
                     'birthday' => $this->input->post('ubday'),
+                    'status' => $this->input->post('ustatus'),
                 );
                 $status = $this->receptionist_model->update_patient($this->uri->segment(3), $patient);
                 if ($status == 1 || $status == '1') {
