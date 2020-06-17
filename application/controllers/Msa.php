@@ -41,6 +41,70 @@ class Msa extends CI_Controller
         redirect(base_url("Msa/prescription"));
     }
 
+    public function updateStock()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data["user"] = $this->session->userdata('user');
+        $data["stockToUpdate"] = $this->msa_model->get_particular_stock($this->uri->segment(3));
+        $data["openUpdateStockModal"] = true;
+        $data["stockId"] = $this->uri->segment(3);
+        $this->session->set_flashdata('reroute', $data);
+        redirect(base_url() . 'Msa/stocks');
+    }
+
+    public function updateStockData()
+    {
+        $this->redirectIfNotLoggedIn();
+        $data['growl'] = '0';
+        $data['message'] = '';
+        $data["user"] = $this->session->userdata('user');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'Name', 'required|regex_match[/^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$/]');
+        $this->form_validation->set_rules('weight', 'Weight', 'required|numeric|greater_than[0]');
+        $this->form_validation->set_rules('weight_unit', 'Weight Unit', 'required|in_list[kg,g,mg,mcg]');
+        $this->form_validation->set_rules('unit_price', 'Unit Price', 'required|numeric|greater_than[0]');
+        $this->form_validation->set_rules('quantity', 'Quantity', 'required|numeric|greater_than[0]');
+        $this->form_validation->set_rules('cost_price', 'Cost Price', 'required|numeric|greater_than[0]');
+        $this->form_validation->set_rules('edate', 'Expiry Date', 'required');
+        $this->form_validation->set_rules('mdate', 'Manufacturing Date', 'required');
+        if ($this->form_validation->run() != FALSE) {
+            $data['stock'] = $this->msa_model->get_particular_stock($this->uri->segment(3));
+            if ($data['stock']) {
+                $stock = array(
+                    'name' => $this->input->post('name'),
+                    'weight' => $this->input->post('weight'),
+                    'weight_unit' => $this->input->post('weight_unit'),
+                    'unit_price' => $this->input->post('unit_price'),
+                    'quantity' => $this->input->post('quantity'),
+                    'cost_price' => $this->input->post('cost_price'),
+                    'date' => $this->input->post('mdate'),
+                    'expiry' => $this->input->post('edate'),
+                    'updated_by' => $data['user']['id']
+                );
+
+                $status = $this->msa_model->update_stock($this->uri->segment(3), $stock);
+
+                if ($status == 1 || $status == '1') {
+                    $data['growl'] = '1';
+                    $data['message'] = 'Stock successfully updated!';
+                } else {
+                    $data['growl'] = '-1';
+                    $data['message'] = 'Something Went Wrong!';
+                }
+            } else {
+                $data['growl'] = '-1';
+                $data['message'] = 'No such stock batch or item Exists';
+            }
+        } else {
+            $data["stockId"] = $this->uri->segment(3);
+            $data["updationStockTimeErrors"] = validation_errors();
+            $data["openUpdateStockModal"] = true;
+            $data["previousUpdationStockData"] = $this->input->post();
+        }
+        $this->session->set_flashdata('reroute', $data);
+        redirect(base_url() . 'Msa/stocks');
+    }
+
     public function sendRequest()
     {
         $data['growl'] = '0';
@@ -137,12 +201,11 @@ class Msa extends CI_Controller
                 $data['message'] = 'Something Went Wrong!';
             }
         } else {
-            $data["patientId"] = $this->uri->segment(3);
+            $data["stockId"] = $this->uri->segment(3);
             $data["additionStockTimeErrors"] = validation_errors();
             $data["openStockAddModal"] = true;
             $data["previousAdditionStockData"] = $this->input->post();
         }
-        echo validation_errors();
 
         $this->session->set_flashdata('reroute', $data);
         redirect(base_url('Msa/stocks'));

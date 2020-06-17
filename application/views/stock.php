@@ -47,7 +47,7 @@
                                  <th scope="col"></th>
                              </tr>
                          </thead>
-                         <tbody class="">
+                         <tbody>
                              <?php
                                 if (isset($stocks) && count($stocks) != 0) {
                                 ?>
@@ -142,7 +142,7 @@
                                              <div class="col-4">
                                                  <select class="form-control" name="weight_unit" required>
                                                      <option value="kg" <?php if (isset($previousAdditionStockData)) {
-                                                                            if ($previousAdditionStockData['weight_unit'] == 'Kg') {
+                                                                            if ($previousAdditionStockData['weight_unit'] == 'kg') {
                                                                                 echo "selected";
                                                                             }
                                                                         } else echo ""; ?>>kg</option>
@@ -220,7 +220,7 @@
                  </div>
 
                  <!-- Update Modal -->
-                 <div id="updateModal" class="modal fade" role="dialog">
+                 <div id="updateStockModal" class="modal fade" role="dialog">
                      <div class="modal-dialog">
 
                          <!-- Modal content-->
@@ -230,113 +230,133 @@
                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                              </div>
+
                              <div class="modal-body">
                                  <form role="form" action="<?php
-                                                            if (isset($patientId)) {
-                                                                echo base_url('receptionist/updatePatientData/') . $patientId;
+                                                            if (isset($stockId)) {
+                                                                echo base_url('Msa/updateStockData/') . $stockId;
                                                             }
                                                             ?>" method="POST">
 
                                      <?php
-                                        if (isset($updationTimeErrors)) {
+                                        if (isset($updationStockTimeErrors)) {
                                             echo '<div class="bg-danger text-white border-1 rounded mb-3 p-3">';
-                                            echo $updationTimeErrors;
+                                            echo $updationStockTimeErrors;
                                             echo '</div>';
                                         }
                                         ?>
                                      <?php echo form_open(); ?>
                                      <div class="form-group">
-                                         <label for="uname">Full Name</label>
-                                         <input class="form-control" placeholder="John Doe" name="uname" value="<?php
-                                                                                                                if (isset($previousData)) {
-                                                                                                                    echo $previousData["uname"];
-                                                                                                                } else {
-                                                                                                                    if (isset($patientToUpdate)) {
-                                                                                                                        echo $patientToUpdate['name'];
-                                                                                                                    }
-                                                                                                                }
-
-                                                                                                                ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
-                                     </div>
-
-
-
-
-                                     <div class="form-group">
-
-                                         <label for="ucnic">CNIC</label>
-                                         <input class="form-control" placeholder="12345-1234567-8" disabled value="<?php if (isset($previousData)) {
-                                                                                                                        echo $previousData["ucnic"];
-                                                                                                                    } else {
-                                                                                                                        if (isset($patientToUpdate)) {
-                                                                                                                            echo $patientToUpdate['cnic'];
-                                                                                                                        }
-                                                                                                                    } ?>" name="ucnic" type="text" required pattern="^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$">
+                                         <label for="name">Name</label>
+                                         <input class="form-control" placeholder="Ativan" name="name" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                    echo $previousUpdationStockData['name'];
+                                                                                                                } else if (isset($stockToUpdate)) {
+                                                                                                                    echo  $stockToUpdate[0]['name'];
+                                                                                                                } ?>" type="text" pattern="^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$" required>
                                      </div>
 
                                      <div class="form-group">
-                                         <label for="uemail">Email</label>
-                                         <input class="form-control" placeholder="johndoe@mail.domain" name="uemail" value="<?php if (isset($previousData)) {
-                                                                                                                                echo $previousData["uemail"];
-                                                                                                                            } else {
-                                                                                                                                if (isset($patientToUpdate)) {
-                                                                                                                                    echo $patientToUpdate['email'];
-                                                                                                                                }
-                                                                                                                            }
-                                                                                                                            ?>" type="email" required>
+                                         <label for="name">Weight</label>
+                                         <div class="form-row">
+                                             <div class="col-8">
+                                                 <input class="form-control" placeholder="4" name="weight" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                        echo $previousUpdationStockData['weight'];
+                                                                                                                    } else if (isset($stockToUpdate)) {
+                                                                                                                        echo  $stockToUpdate[0]['weight'];
+                                                                                                                    }  ?>" type="number" min="1" required>
+                                             </div>
 
+                                             <div class="col-4">
+                                                 <select class="form-control" name="weight_unit" required>
+                                                     <option value="kg" <?php if (isset($previousUpdationStockData)) {
+                                                                            if ($previousUpdationStockData['weight_unit'] == 'kg') {
+                                                                                echo "selected";
+                                                                            }
+                                                                        } else if (isset($stockToUpdate) && $stockToUpdate[0]['weight_unit'] == 'kg') {
+                                                                            echo "selected";
+                                                                        } else echo ""; ?>>kg</option>
+                                                     <option value="g" <?php if (isset($previousUpdationStockData)) {
+                                                                            if ($previousUpdationStockData['weight_unit'] == 'g') {
+                                                                                echo "selected";
+                                                                            }
+                                                                        } else if (isset($stockToUpdate) && $stockToUpdate[0]['weight_unit'] == 'g') {
+                                                                            echo "selected";
+                                                                        } else echo ""; ?>>g</option>
+                                                     <option value="mg" <?php if (isset($previousUpdationStockData)) {
+                                                                            if ($previousUpdationStockData['weight_unit'] == 'mg') {
+                                                                                echo "selected";
+                                                                            }
+                                                                        } else if (isset($stockToUpdate) && $stockToUpdate[0]['weight_unit'] == 'mg') {
+                                                                            echo "selected";
+                                                                        } else echo ""; ?>>mg</option>
+
+                                                     <option value="mcg" <?php if (isset($previousUpdationStockData)) {
+                                                                                if ($previousUpdationStockData['weight_unit'] == 'mcg') {
+                                                                                    echo "selected";
+                                                                                }
+                                                                            } else if (isset($stockToUpdate) && $stockToUpdate[0]['weight_unit'] == 'mcg') {
+                                                                                echo "selected";
+                                                                            } else echo ""; ?>>mcg</option>
+                                                 </select>
+                                             </div>
+                                         </div>
                                      </div>
 
                                      <div class="form-group">
-                                         <label for="jdate">Date Of Birth</label>
-                                         <input class="form-control" name="ubday" value="<?php if (isset($previousData)) {
-                                                                                                echo $previousData["ubday"];
-                                                                                            } else {
-                                                                                                if (isset($patientToUpdate) && $patientToUpdate['birthday']) {
-                                                                                                    echo strftime(
-                                                                                                        '%Y-%m-%d',
-                                                                                                        strtotime($patientToUpdate['birthday'])
-                                                                                                    );
-                                                                                                }
-                                                                                            }
-
-                                                                                            ?>" type="date" required>
-
-                                     </div>
-                                     <div class="form-group">
-                                         <label for="address">Address</label>
-                                         <textarea class="form-control" name="uaddress" placeholder="123 Main Street, New York, NY 10030" rows="3" required><?php if (isset($previousData)) {
-                                                                                                                                                                echo $previousData["uaddress"];
-                                                                                                                                                            } else {
-                                                                                                                                                                if (isset($patientToUpdate)) {
-                                                                                                                                                                    echo $patientToUpdate['address'];
-                                                                                                                                                                }
-                                                                                                                                                            } ?></textarea>
+                                         <label for="name">Unit Price</label>
+                                         <input class="form-control" placeholder="4" name="unit_price" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                    echo $previousUpdationStockData['unit_price'];
+                                                                                                                } else if (isset($stockToUpdate)) {
+                                                                                                                    echo  $stockToUpdate[0]['unit_price'];
+                                                                                                                }  ?>" type="number" min="1" required>
                                      </div>
 
 
                                      <div class="form-group">
-                                         <label for="gender">Gender</label>
-                                         <select class="form-control" name="ugender" disabled required>
-                                             <option value="1" <?php
-                                                                if (isset($previousData) && $previousData["ugender"] == 1) {
-                                                                    echo "selected";
-                                                                } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 1) {
-                                                                    echo "selected";
-                                                                }
-                                                                ?>>Female</option>
-                                             <option value="2" <?php if (isset($previousData) && $previousData["ugender"] == 2) {
-                                                                    echo "selected";
-                                                                } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 2) {
-                                                                    echo "selected";
-                                                                } ?>>Male</option>
-                                             <option value="3" <?php if (isset($previousData) && $previousData["ugender"] == 3) {
-                                                                    echo "selected";
-                                                                } else if (isset($patientToUpdate) && $patientToUpdate["gender"] == 3) {
-                                                                    echo "selected";
-                                                                } ?>>Other</option>
-                                         </select>
+                                         <label for="name">Quantity</label>
+                                         <input class="form-control" placeholder="4" name="quantity" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                echo $previousUpdationStockData['quantity'];
+                                                                                                            } else if (isset($stockToUpdate)) {
+                                                                                                                echo  $stockToUpdate[0]['quantity'];
+                                                                                                            }  ?>" type="number" min="1" required>
                                      </div>
+
+                                     <div class="form-group">
+                                         <label for="name">Cost Price</label>
+                                         <input class="form-control" placeholder="4" name="cost_price" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                                    echo $previousUpdationStockData['cost_price'];
+                                                                                                                } else if (isset($stockToUpdate)) {
+                                                                                                                    echo  $stockToUpdate[0]['cost_price'];
+                                                                                                                }  ?>" type="number" min="1" required>
+                                     </div>
+
+
+                                     <div class="form-group">
+                                         <label for="mdate">Manufacturing Date</label>
+                                         <input class="form-control" name="mdate" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                echo $previousUpdationStockData['mdate'];
+                                                                                            } else if (isset($stockToUpdate)) {
+                                                                                                echo strftime(
+                                                                                                    '%Y-%m-%d',
+                                                                                                    strtotime($stockToUpdate[0]['date'])
+                                                                                                );
+                                                                                            }  ?>" type="date" required>
+
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="edate">Expiry Date</label>
+                                         <input class="form-control" name="edate" value="<?php if (isset($previousUpdationStockData)) {
+                                                                                                echo $previousUpdationStockData['edate'];
+                                                                                            } else if (isset($stockToUpdate)) {
+                                                                                                echo strftime(
+                                                                                                    '%Y-%m-%d',
+                                                                                                    strtotime($stockToUpdate[0]['expiry'])
+                                                                                                );
+                                                                                            }  ?>" type="date" required>
+
+                                     </div>
+
 
 
                                      <div class="clearfix" style="padding: '.5rem'">

@@ -28,6 +28,21 @@ class Msa_model extends CI_Model
         return $this->db->insert('Stock', $stock);
     }
 
+    public function get_particular_stock($id)
+    {
+        $this->db->select('*');
+        $this->db->from('Stock');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    function update_stock($id, $data)
+    {
+        return $this->db->update('Stock', $data, 'id=' . $id);
+    }
+
+
     public function get_particular_prescription($id)
     {
         $this->db->select('Prescriptions.id as pr_id,Prescriptions.general_details,  Patients.email');

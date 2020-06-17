@@ -118,6 +118,15 @@ if (isset($openStockAddModal) && $openStockAddModal) {
     </script>
 <?php
 }
+if (isset($openUpdateStockModal) && $openUpdateStockModal) {
+?>
+    <script type="text/javascript">
+        $(function() {
+            $('#updateStockModal').modal('show');
+        });
+    </script>
+<?php
+}
 ?>
 
 
