@@ -261,6 +261,11 @@ class Msa extends CI_Controller
     {
         if (!$this->session->has_userdata('user')) {
             return redirect(base_url() . 'auth/');
+        } else {
+            $data["user"] = $this->session->userdata('user');
+            if ($data["user"]["role_id"] != 3) {
+                return redirect(base_url() . 'dashboard/');
+            }
         }
     }
 }
